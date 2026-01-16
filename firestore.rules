@@ -2,17 +2,16 @@
  * This ruleset enforces a security model with two distinct access patterns:
  * 1.  Strict User Ownership: Data stored in the `/users/{userId}` path is private.
  *     Users can only access their own document and are completely isolated
- *     from other users' data. Listing the top-level `/users` collection is
- *     forbidden to protect user privacy.
- * 2.  Public Read-Only Content: All quiz-related data under the `/quizzes`
- *     path, including questions and translations, is considered public and
- *     can be read by anyone, including unauthenticated users. This allows the
- *     application to display quiz content freely.
+ *     from other users' data.
+ * 2.  Public Read for Content & Leaderboard: All quiz-related data under
+ *     `/quizzes` is public read-only. The `/users` collection can be listed by
+ *     any signed-in user to populate the public leaderboard, but individual
+ *     documents can only be read by their owner.
  *
  * Core Philosophy:
  * The security posture is "deny by default." Access is only granted through
  * explicit `allow` statements. The primary goal is to protect user data while
- * making educational content widely accessible.
+ * making educational content and community features like leaderboards accessible.
  *
  * Data Structure:
  * - /users/{userId}: Contains private user profile information.
@@ -24,6 +23,9 @@
  * - User Isolation: A user can only create, read, update, or delete their own
  *   user document, enforced by matching `request.auth.uid` with the `userId`
  *   in the document path.
+ * - Leaderboard Access: Any authenticated user can list the `/users` collection.
+ *   This is necessary for the leaderboard. However, they can only `get` their own
+ *   document, preventing direct access to other users' full data.
  * - Public Content: All quiz data is read-only for all clients. This is a
  *   secure default because the data model lacks an 'ownerId' or 'authorId'
  *   field on quizzes, making it impossible to safely determine who should
@@ -89,7 +91,7 @@ service cloud.firestore {
      */
     match /users/{userId} {
       allow get: if isOwner(userId);
-      allow list: if isOwner(userId);
+      allow list: if isSignedIn(); // Allow listing for leaderboard
       allow create: if isOwner(userId) && isCreatingOwnUserDocument(userId);
       allow update: if isExistingOwner(userId) && isUpdatingOwnUserDocument();
       allow delete: if isExistingOwner(userId);
