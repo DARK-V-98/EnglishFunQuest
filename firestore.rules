@@ -1,0 +1,140 @@
+/**
+ * This ruleset enforces a security model with two distinct access patterns:
+ * 1.  Strict User Ownership: Data stored in the `/users/{userId}` path is private.
+ *     Users can only access their own document and are completely isolated
+ *     from other users' data. Listing the top-level `/users` collection is
+ *     forbidden to protect user privacy.
+ * 2.  Public Read-Only Content: All quiz-related data under the `/quizzes`
+ *     path, including questions and translations, is considered public and
+ *     can be read by anyone, including unauthenticated users. This allows the
+ *     application to display quiz content freely.
+ *
+ * Core Philosophy:
+ * The security posture is "deny by default." Access is only granted through
+ * explicit `allow` statements. The primary goal is to protect user data while
+ * making educational content widely accessible.
+ *
+ * Data Structure:
+ * - /users/{userId}: Contains private user profile information.
+ * - /quizzes/{quizId}: Contains public quiz information.
+ *   - /quizzes/{quizId}/questions/{questionId}: Public questions for a quiz.
+ *   - /quizzes/{quizId}/translations/{translationId}: Public translations for a quiz.
+ *
+ * Key Security Decisions:
+ * - User Isolation: A user can only create, read, update, or delete their own
+ *   user document, enforced by matching `request.auth.uid` with the `userId`
+ *   in the document path.
+ * - Public Content: All quiz data is read-only for all clients. This is a
+ *   secure default because the data model lacks an 'ownerId' or 'authorId'
+ *   field on quizzes, making it impossible to safely determine who should
+ *   be allowed to write or modify them. All quiz content must be managed
+ *   via the Firebase Admin SDK.
+ * - Denormalization for Authorization: The rules for the `/users` collection
+ *   validate that the `id` field within a user document matches the document's
+ *   ID (`userId`) in the path. This ensures relational integrity without
+ *   requiring costly `get` calls.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions to improve readability and maintainability.
+
+    /**
+     * Checks if a user is authenticated.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /**
+     * Checks if the currently authenticated user's UID matches the given userId.
+     * This is the foundation of the user-ownership security model.
+     */
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    /**
+     * Checks for ownership on an existing document. Used for update and delete
+     * operations to prevent acting on non-existent data.
+     */
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
+    }
+
+    /**
+     * Validates required relational fields when a user creates their own profile.
+     * Enforces that the document's internal `id` matches the `userId` from the path.
+     */
+    function isCreatingOwnUserDocument(userId) {
+      return request.resource.data.id == userId;
+    }
+
+    /**
+     * Validates immutability of critical fields when a user updates their profile.
+     * Prevents the document's internal `id` from being changed after creation.
+     */
+    function isUpdatingOwnUserDocument() {
+      return request.resource.data.id == resource.data.id;
+    }
+
+
+    /**
+     * @description Controls access to user profile documents.
+     * @path /users/{userId}
+     * @allow A signed-in user (create)s their own document, e.g., /users/USER_123.
+     * @deny A signed-in user attempts to (get) another user's document, e.g., /users/USER_456.
+     * @principle Restricts access to a user's own data tree, enforcing strict privacy.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if isOwner(userId);
+      allow create: if isOwner(userId) && isCreatingOwnUserDocument(userId);
+      allow update: if isExistingOwner(userId) && isUpdatingOwnUserDocument();
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Controls access to the top-level quizzes collection.
+     * @path /quizzes/{quizId}
+     * @allow Any user, signed-in or not, (get)s a quiz document.
+     * @deny Any client attempts to (create) a new quiz document.
+     * @principle Implements a "Public Read, No Writes" pattern for public content. Writes are disabled because the data model lacks an ownership field, making secure write authorization impossible.
+     */
+    match /quizzes/{quizId} {
+      allow get: if true;
+      allow list: if true;
+      // CRITICAL: Cannot implement owner-only writes. The 'Quiz' entity is missing an 'ownerId' or 'authorId' field.
+      allow create, update, delete: if false; // TODO: Add owner validation once the schema is updated with an ownership field.
+    }
+
+    /**
+     * @description Controls access to the questions subcollection within a quiz.
+     * @path /quizzes/{quizId}/questions/{questionId}
+     * @allow Any user, signed-in or not, (list)s the questions for a quiz.
+     * @deny Any client attempts to (update) a question document.
+     * @principle Inherits the "Public Read, No Writes" pattern from its parent collection.
+     */
+    match /quizzes/{quizId}/questions/{questionId} {
+      allow get: if true;
+      allow list: if true;
+      // CRITICAL: Cannot implement owner-only writes. The 'Question' entity is missing an 'ownerId' or 'authorId' field.
+      allow create, update, delete: if false; // TODO: Add owner validation once the schema is updated with an ownership field.
+    }
+
+    /**
+     * @description Controls access to the translations subcollection within a quiz.
+     * @path /quizzes/{quizId}/translations/{translationId}
+     * @allow Any user, including signed-in Sri Lankan students, (get)s a quiz translation.
+     * @deny Any client attempts to (delete) a translation document.
+     * @principle Inherits the "Public Read, No Writes" pattern from its parent collection.
+     */
+    match /quizzes/{quizId}/translations/{translationId} {
+      allow get: if true;
+      allow list: if true;
+      // CRITICAL: Cannot implement owner-only writes. The 'QuizTranslation' entity is missing an 'ownerId' or 'authorId' field.
+      allow create, update, delete: if false; // TODO: Add owner validation once the schema is updated with an ownership field.
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the LandingPilot application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "User's first name."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "User's last name."
+        },
+        "signUpDate": {
+          "type": "string",
+          "description": "Date and time when the user signed up.",
+          "format": "date-time"
+        },
+        "country": {
+          "type": "string",
+          "description": "The user's country of residence."
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "firstName",
+        "lastName",
+        "signUpDate",
+        "country"
+      ]
+    },
+    "Quiz": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Quiz",
+      "type": "object",
+      "description": "Represents a quiz available within the application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the quiz."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the quiz."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the quiz."
+        },
+        "language": {
+          "type": "string",
+          "description": "The language that the quiz is in."
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "language"
+      ]
+    },
+    "Question": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Question",
+      "type": "object",
+      "description": "Represents a question within a quiz.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the question."
+        },
+        "quizId": {
+          "type": "string",
+          "description": "Reference to Quiz. (Relationship: Quiz 1:N Question)"
+        },
+        "text": {
+          "type": "string",
+          "description": "Text of the question."
+        },
+        "language": {
+          "type": "string",
+          "description": "Language of the question."
+        }
+      },
+      "required": [
+        "id",
+        "quizId",
+        "text",
+        "language"
+      ]
+    },
+    "QuizTranslation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "QuizTranslation",
+      "type": "object",
+      "description": "Stores translations of quiz questions for different languages.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the quiz translation."
+        },
+        "quizId": {
+          "type": "string",
+          "description": "Reference to the Quiz entity. (Relationship: Quiz 1:N QuizTranslation)"
+        },
+        "language": {
+          "type": "string",
+          "description": "The language of the translation (e.g., 'sinhala')."
+        },
+        "translatedText": {
+          "type": "string",
+          "description": "The translated text of the quiz."
+        }
+      },
+      "required": [
+        "id",
+        "quizId",
+        "language",
+        "translatedText"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profiles. Uses path-based ownership. The `userId` parameter identifies the user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/quizzes/{quizId}",
+        "definition": {
+          "entityName": "Quiz",
+          "schema": {
+            "$ref": "#/backend/entities/Quiz"
+          },
+          "description": "Stores quiz information. The `quizId` parameter identifies the quiz.",
+          "params": [
+            {
+              "name": "quizId",
+              "description": "The unique identifier for the quiz."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/quizzes/{quizId}/questions/{questionId}",
+        "definition": {
+          "entityName": "Question",
+          "schema": {
+            "$ref": "#/backend/entities/Question"
+          },
+          "description": "Stores questions for each quiz. Uses path-based ownership under the quiz. The `quizId` parameter identifies the quiz, and the `questionId` parameter identifies the question.",
+          "params": [
+            {
+              "name": "quizId",
+              "description": "The unique identifier for the quiz."
+            },
+            {
+              "name": "questionId",
+              "description": "The unique identifier for the question."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/quizzes/{quizId}/translations/{translationId}",
+        "definition": {
+          "entityName": "QuizTranslation",
+          "schema": {
+            "$ref": "#/backend/entities/QuizTranslation"
+          },
+          "description": "Stores translations for each quiz. Uses path-based ownership under the quiz. The `quizId` parameter identifies the quiz, and the `translationId` parameter identifies the translation.",
+          "params": [
+            {
+              "name": "quizId",
+              "description": "The unique identifier for the quiz."
+            },
+            {
+              "name": "translationId",
+              "description": "The unique identifier for the quiz translation."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to ensure authorization independence, clarity, and QAP support. It leverages path-based ownership for user data and quiz-related entities, and denormalization to avoid hierarchical authorization dependencies. The structure also segregates data based on access needs and employs consistent access modeling.\n\nUsers are stored in a dedicated collection (`/users/{userId}`) with their associated data. Quizzes are stored in a dedicated collection (`/quizzes/{quizId}`). Questions are stored as subcollections under each quiz (`/quizzes/{quizId}/questions/{questionId}`), and QuizTranslations are also stored as subcollections under each quiz (`/quizzes/{quizId}/translations/{translationId}`).\n\nThis design enables secure `list` operations by segregating data with different access requirements into separate collections or subcollections, following the principle of homogeneous security posture. Authorization Independence is achieved by avoiding `get()` calls in rules and enabling atomic creation of parent/child documents using path-based ownership."
+  }
+}
