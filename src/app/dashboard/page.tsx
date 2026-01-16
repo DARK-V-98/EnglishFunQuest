@@ -54,7 +54,7 @@ export default function DashboardPage() {
             {country === 'Sri Lanka' && (
                 <div className="bg-primary/10 text-primary p-4 rounded-2xl mb-8 flex items-center justify-center gap-3 card-shadow border-2 border-primary/20">
                     <Globe className="w-6 h-6" />
-                    <p className="font-bold">Sinhala translations are available in quizzes for you!</p>
+                    <p className="font-bold">Look for the 'Show Sinhala Translation' button in quizzes!</p>
                 </div>
             )}
             <div className="bg-card rounded-3xl p-8 card-shadow border-4 border-muted">

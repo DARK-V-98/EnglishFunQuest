@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { KidButton } from "@/components/ui/kid-button";
-import { Check, X, Sparkles } from "lucide-react";
+import { Check, X, Sparkles, Languages } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ReadAloudButton } from "./ReadAloudButton";
 
@@ -28,6 +28,7 @@ export function QuizQuestion({
   const [selected, setSelected] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(false);
   
   const [correctSound, setCorrectSound] = useState<HTMLAudioElement | null>(null);
   const [wrongSound, setWrongSound] = useState<HTMLAudioElement | null>(null);
@@ -85,8 +86,17 @@ export function QuizQuestion({
       </div>
 
       {translation && (
-        <div className="text-center text-muted-foreground mb-6 text-lg font-body">
-          {translation}
+        <div className="text-center mb-6">
+          {!showTranslation ? (
+            <KidButton variant="ghost" size="sm" onClick={() => setShowTranslation(true)}>
+              <Languages className="w-5 h-5" />
+              Show Sinhala Translation
+            </KidButton>
+          ) : (
+            <div className="bg-primary/10 text-primary p-3 rounded-xl text-lg font-body bounce-in">
+              {translation}
+            </div>
+          )}
         </div>
       )}
       
