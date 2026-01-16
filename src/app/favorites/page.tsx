@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useFavorites } from '@/hooks/use-favorites';
+import { useProgress } from '@/hooks/use-progress';
 import { lessons } from '@/data/lessons';
 import { LessonCard } from '@/components/ui/lesson-card';
 import { KidButton } from '@/components/ui/kid-button';
@@ -10,6 +11,7 @@ import { iconMap } from '@/lib/iconMap';
 
 export default function FavoritesPage() {
   const { favorites, isFavorite, toggleFavorite } = useFavorites();
+  const { getLessonProgress } = useProgress();
   const favoriteLessons = lessons.filter(lesson => favorites.includes(lesson.id));
 
   return (
@@ -42,6 +44,7 @@ export default function FavoritesPage() {
                     e.stopPropagation();
                     toggleFavorite(lesson.id);
                   }}
+                  progress={getLessonProgress(lesson.id)}
                   pattern={['A', 'B', 'C'][(index % 3)] as 'A' | 'B' | 'C'}
                 />
               </Link>

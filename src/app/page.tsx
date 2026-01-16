@@ -1,11 +1,14 @@
 'use client';
 
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import type { Lesson } from "@/data/lessons";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
 import { Sparkles, Star, Globe, Heart, Book, BookHeart } from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
 import { useFavorites } from "@/hooks/use-favorites";
+import { useProgress } from "@/hooks/use-progress";
 import { iconMap } from "@/lib/iconMap";
 import { BookOpen } from "lucide-react";
 
@@ -14,6 +17,13 @@ const totalQuestions = lessons.reduce((acc, l) => acc + l.quiz.length, 0);
 
 export default function Home() {
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { getLessonProgress } = useProgress();
+  const [lessonOfTheDay, setLessonOfTheDay] = useState<Lesson | null>(null);
+
+  useEffect(() => {
+    const dayIndex = Math.floor(new Date().getDate() % lessons.length);
+    setLessonOfTheDay(lessons[dayIndex]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -96,6 +106,32 @@ export default function Home() {
 
       {/* Lessons Grid */}
       <main className="max-w-6xl mx-auto px-4 pb-16">
+        {/* Lesson of the Day */}
+        {lessonOfTheDay && (
+          <section className="mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <Sparkles className="w-8 h-8 text-accent fill-accent/20" />
+              <h2 className="text-2xl sm:text-3xl font-heading text-foreground">Lesson of the Day</h2>
+            </div>
+            <Link href={`/lesson/${lessonOfTheDay.id}`} className="block bounce-in">
+              <LessonCard
+                title={lessonOfTheDay.title}
+                description={lessonOfTheDay.description}
+                icon={iconMap[lessonOfTheDay.icon] || BookOpen}
+                color="accent"
+                isFavorite={isFavorite(lessonOfTheDay.id)}
+                onToggleFavorite={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleFavorite(lessonOfTheDay.id);
+                }}
+                progress={getLessonProgress(lessonOfTheDay.id)}
+                pattern="A"
+              />
+            </Link>
+          </section>
+        )}
+
         <div className="flex items-center gap-3 mb-8">
           <Star className="w-8 h-8 text-warning fill-warning" />
           <h2 className="text-2xl sm:text-3xl font-heading text-foreground">Choose a Lesson</h2>
@@ -115,6 +151,7 @@ export default function Home() {
                   e.stopPropagation();
                   toggleFavorite(lesson.id);
                 }}
+                progress={getLessonProgress(lesson.id)}
                 pattern={['A', 'B', 'C'][(index % 3)] as 'A' | 'B' | 'C'}
               />
             </Link>

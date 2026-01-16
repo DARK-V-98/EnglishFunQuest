@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { lessons } from "@/data/lessons";
 import { KidButton } from "@/components/ui/kid-button";
 import { QuizQuestion } from "@/components/QuizQuestion";
+import { Confetti } from "@/components/ui/confetti";
+import { useProgress } from "@/hooks/use-progress";
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -21,7 +23,8 @@ import { ReadAloudButton } from "@/components/ReadAloudButton";
 
 const LessonPage = () => {
   const params = useParams();
-  const lessonId = params.lessonId;
+  const lessonId = params.lessonId as string;
+  const { saveProgress } = useProgress();
 
   const [isLearning, setIsLearning] = useState(true);
   const [currentQuiz, setCurrentQuiz] = useState(0);
@@ -29,6 +32,12 @@ const LessonPage = () => {
   const [quizComplete, setQuizComplete] = useState(false);
 
   const lesson = lessons.find((l) => l.id === lessonId);
+
+  useEffect(() => {
+    if (quizComplete && lesson) {
+      saveProgress(lesson.id, score, lesson.quiz.length);
+    }
+  }, [quizComplete, lesson, score, saveProgress]);
 
   if (!lesson) {
     return (
@@ -199,47 +208,50 @@ const LessonPage = () => {
           </div>
         ) : quizComplete ? (
           // Quiz Complete
-          <div className="text-center py-12 bounce-in">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-warning/20 rounded-full mb-6">
-              <Trophy className="w-12 h-12 text-warning" />
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl font-heading text-foreground mb-4">
-              {score === lesson.quiz.length ? "Perfect Score! 🎉" : "Great Job! 🌟"}
-            </h2>
-            
-            <div className="flex justify-center gap-1 mb-6">
-              {Array.from({ length: lesson.quiz.length }).map((_, i) => (
-                <Star
-                  key={i}
-                  className={cn(
-                    "w-8 h-8 transition-all",
-                    i < score 
-                      ? "text-warning fill-warning scale-110" 
-                      : "text-muted"
-                  )}
-                />
-              ))}
-            </div>
-            
-            <p className="text-xl text-muted-foreground mb-8">
-              You got <strong className="text-primary">{score}</strong> out of{" "}
-              <strong>{lesson.quiz.length}</strong> questions right!
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-4">
-              <KidButton variant="outline" onClick={restartQuiz}>
-                <Sparkles className="w-5 h-5" />
-                Try Again
-              </KidButton>
-              <Link href="/">
-                <KidButton>
-                  <Home className="w-5 h-5" />
-                  More Lessons
+          <>
+            {score === lesson.quiz.length && <Confetti />}
+            <div className="text-center py-12 bounce-in">
+              <div className="inline-flex items-center justify-center w-24 h-24 bg-warning/20 rounded-full mb-6">
+                <Trophy className="w-12 h-12 text-warning" />
+              </div>
+              
+              <h2 className="text-3xl sm:text-4xl font-heading text-foreground mb-4">
+                {score === lesson.quiz.length ? "Perfect Score! 🎉" : "Great Job! 🌟"}
+              </h2>
+              
+              <div className="flex justify-center gap-1 mb-6">
+                {Array.from({ length: lesson.quiz.length }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className={cn(
+                      "w-8 h-8 transition-all",
+                      i < score 
+                        ? "text-warning fill-warning scale-110" 
+                        : "text-muted"
+                    )}
+                  />
+                ))}
+              </div>
+              
+              <p className="text-xl text-muted-foreground mb-8">
+                You got <strong className="text-primary">{score}</strong> out of{" "}
+                <strong>{lesson.quiz.length}</strong> questions right!
+              </p>
+              
+              <div className="flex flex-wrap justify-center gap-4">
+                <KidButton variant="outline" onClick={restartQuiz}>
+                  <Sparkles className="w-5 h-5" />
+                  Try Again
                 </KidButton>
-              </Link>
+                <Link href="/">
+                  <KidButton>
+                    <Home className="w-5 h-5" />
+                    More Lessons
+                  </KidButton>
+                </Link>
+              </div>
             </div>
-          </div>
+          </>
         ) : (
           // Quiz Questions
           <div>
