@@ -6,7 +6,11 @@ import { useState, useEffect } from "react";
 import type { Lesson } from "@/data/lessons";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
-import { Sparkles, Star, Heart, Book, BookHeart, Trophy, BookText, Menu, BookOpen, Crown } from "lucide-react";
+import { lessonCategories } from "@/data/lesson-categories";
+import { 
+  Sparkles, Star, Heart, Book, BookHeart, Trophy, BookText, Menu, BookOpen, Crown,
+  Cat, Clock, Users, MapPin, MessageSquare, Gamepad2, Home as HomeIcon
+} from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
 import { useFavorites } from "@/hooks/use-favorites";
 import { useProgress } from "@/hooks/use-progress";
@@ -16,7 +20,16 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { Separator } from "@/components/ui/separator";
 
 
-const totalQuestions = lessons.reduce((acc, l) => acc + l.quiz.length, 0);
+const categoryInfo: { [key: string]: { title: string; icon: any } } = {
+  basics: { title: "The Basics", icon: Star },
+  animals: { title: "Animals", icon: Cat },
+  people: { title: "People & Family", icon: Users },
+  places: { title: "Places", icon: MapPin },
+  everyday: { title: "Everyday Life", icon: HomeIcon },
+  language: { title: "Language Skills", icon: MessageSquare },
+  time: { title: "Time & Seasons", icon: Clock },
+  fun: { title: "Fun & Hobbies", icon: Gamepad2 },
+};
 
 export default function LessonsPage() {
   const { isFavorite, toggleFavorite } = useFavorites();
@@ -78,11 +91,11 @@ export default function LessonsPage() {
         </div>
       </header>
 
-      {/* Lessons Grid */}
-      <main className="max-w-6xl mx-auto px-4 py-16">
+      {/* Main content */}
+      <main className="max-w-6xl mx-auto px-4 py-16 space-y-16">
         {/* Lesson of the Day */}
         {lessonOfTheDay && (
-          <section className="mb-12">
+          <section>
             <div className="flex items-center gap-3 mb-4">
               <Sparkles className="w-8 h-8 text-accent fill-accent/20" />
               <h2 className="text-2xl sm:text-3xl font-heading text-foreground">Lesson of the Day</h2>
@@ -106,31 +119,42 @@ export default function LessonsPage() {
           </section>
         )}
 
-        <div className="flex items-center gap-3 mb-8">
-          <Star className="w-8 h-8 text-warning fill-warning" />
-          <h2 className="text-2xl sm:text-3xl font-heading text-foreground">Choose a Lesson</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
-          {lessons.map((lesson, index) => (
-            <Link key={lesson.id} href={`/lesson/${lesson.id}`} style={{ animationDelay: `${index * 0.05}s` }} className="bounce-in block">
-              <LessonCard
-                title={lesson.title}
-                description={`${lesson.quiz.length} quizzes`}
-                icon={iconMap[lesson.icon] || BookOpen}
-                color={['primary', 'secondary', 'accent', 'purple', 'pink'][index % 5] as any}
-                isFavorite={isFavorite(lesson.id)}
-                onToggleFavorite={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  toggleFavorite(lesson.id);
-                }}
-                progress={getLessonProgress(lesson.id)}
-                pattern={['A', 'B', 'C'][(index % 3)] as 'A' | 'B' | 'C'}
-              />
-            </Link>
-          ))}
-        </div>
+        {/* Lesson Categories */}
+        {Object.entries(lessonCategories).map(([categoryId, lessonsInCategory]) => {
+          const info = categoryInfo[categoryId];
+          if (!info) return null;
+          const CategoryIcon = info.icon;
+
+          return (
+            <section key={categoryId}>
+              <div className="flex items-center gap-3 mb-8">
+                <CategoryIcon className="w-8 h-8 text-primary" />
+                <h2 className="text-2xl sm:text-3xl font-heading text-foreground">{info.title}</h2>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
+                {lessonsInCategory.map((lesson, index) => (
+                  <Link key={lesson.id} href={`/lesson/${lesson.id}`} style={{ animationDelay: `${index * 0.05}s` }} className="bounce-in block">
+                    <LessonCard
+                      title={lesson.title}
+                      description={`${lesson.quiz.length} quizzes`}
+                      icon={iconMap[lesson.icon] || BookOpen}
+                      color={lesson.color}
+                      isFavorite={isFavorite(lesson.id)}
+                      onToggleFavorite={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        toggleFavorite(lesson.id);
+                      }}
+                      progress={getLessonProgress(lesson.id)}
+                      pattern={['A', 'B', 'C'][(index % 3)] as 'A' | 'B' | 'C'}
+                    />
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )
+        })}
       </main>
 
       {/* Footer */}
