@@ -6,7 +6,7 @@ export const funLessons: Lesson[] = [
     title: "Toys & Games",
     description: "Fun things to play with!",
     icon: "toys",
-    color: "pink",
+    color: "primary",
     content: [
       {
         type: "text",
@@ -83,7 +83,7 @@ export const funLessons: Lesson[] = [
     title: "Sports",
     description: "Stay active and healthy!",
     icon: "sports",
-    color: "primary",
+    color: "secondary",
     content: [
       {
         type: "text",
@@ -160,7 +160,7 @@ export const funLessons: Lesson[] = [
     title: "Music & Instruments",
     description: "Learn about sounds and music!",
     icon: "music",
-    color: "secondary",
+    color: "accent",
     content: [
       {
         type: "text",
@@ -241,7 +241,7 @@ export const funLessons: Lesson[] = [
     title: "Nature & Plants",
     description: "Explore the natural world!",
     icon: "nature",
-    color: "accent",
+    color: "purple",
     content: [
       {
         type: "text",

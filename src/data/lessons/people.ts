@@ -6,7 +6,7 @@ export const peopleLessons: Lesson[] = [
     title: "Family Members",
     description: "Learn about your family!",
     icon: "family",
-    color: "purple",
+    color: "pink",
     content: [
       {
         type: "text",
@@ -81,7 +81,7 @@ export const peopleLessons: Lesson[] = [
     title: "Body Parts",
     description: "Learn parts of the body!",
     icon: "body",
-    color: "pink",
+    color: "primary",
     content: [
       {
         type: "text",
@@ -159,7 +159,7 @@ export const peopleLessons: Lesson[] = [
     title: "Feelings & Emotions",
     description: "Express how you feel!",
     icon: "feelings",
-    color: "accent",
+    color: "secondary",
     content: [
       {
         type: "text",
@@ -236,7 +236,7 @@ export const peopleLessons: Lesson[] = [
     title: "Jobs & Professions",
     description: "What do people do for work?",
     icon: "jobs",
-    color: "primary",
+    color: "accent",
     content: [
       {
         type: "text",

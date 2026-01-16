@@ -127,6 +127,20 @@
   .pulse-glow {
     animation: pulseGlow 2s ease-in-out infinite;
   }
+  
+  .pattern-A {
+    background-image: radial-gradient(hsl(var(--muted) / 0.5) 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+  .pattern-B {
+    background-image: repeating-linear-gradient(45deg, hsl(var(--muted)) 0, hsl(var(--muted)) 1px, transparent 1px, transparent 10px);
+  }
+  .pattern-C {
+    background-size: 20px 20px;
+    background-image:
+      linear-gradient(to right, hsl(var(--muted)) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--muted)) 1px, transparent 1px);
+  }
 }
 
 @keyframes wiggle {

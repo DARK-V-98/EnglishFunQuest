@@ -6,7 +6,7 @@ export const everydayLessons: Lesson[] = [
     title: "Greetings",
     description: "Say hello and goodbye!",
     icon: "greetings",
-    color: "secondary",
+    color: "purple",
     content: [
       {
         type: "text",
@@ -81,7 +81,7 @@ export const everydayLessons: Lesson[] = [
     title: "Food & Drinks",
     description: "Learn about yummy food!",
     icon: "food",
-    color: "accent",
+    color: "pink",
     content: [
       {
         type: "text",
@@ -172,7 +172,7 @@ export const everydayLessons: Lesson[] = [
     title: "Clothes & Clothing",
     description: "What do we wear?",
     icon: "clothes",
-    color: "purple",
+    color: "primary",
     content: [
       {
         type: "text",
@@ -253,7 +253,7 @@ export const everydayLessons: Lesson[] = [
     title: "Weather",
     description: "Learn about weather conditions!",
     icon: "weather",
-    color: "pink",
+    color: "secondary",
     content: [
       {
         type: "text",

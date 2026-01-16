@@ -11,6 +11,7 @@ interface LessonCardProps {
   progress?: number;
   isFavorite?: boolean;
   onToggleFavorite?: (e: React.MouseEvent) => void;
+  pattern?: "A" | "B" | "C";
 }
 
 const colorClasses = {
@@ -37,12 +38,20 @@ export function LessonCard({
   progress = 0,
   isFavorite,
   onToggleFavorite,
+  pattern,
 }: LessonCardProps) {
+  const patternClass = pattern ? {
+    A: "pattern-A",
+    B: "pattern-B",
+    C: "pattern-C",
+  }[pattern] : "";
+
   return (
     <div
       className={cn(
-        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left transition-shadow cursor-pointer h-full flex flex-col",
-        colorClasses[color]
+        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left h-full flex flex-col",
+        colorClasses[color],
+        patternClass
       )}
     >
       {onToggleFavorite && (
@@ -64,7 +73,7 @@ export function LessonCard({
         >
           <Icon className="w-8 h-8" />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 min-h-[3.5rem]">
           <h3 className="text-xl font-heading text-foreground mb-1">{title}</h3>
           <p className="text-muted-foreground font-body text-sm">{description}</p>
         </div>

@@ -6,7 +6,7 @@ export const placesLessons: Lesson[] = [
     title: "Rooms in a House",
     description: "Explore parts of a home!",
     icon: "rooms",
-    color: "secondary",
+    color: "accent",
     content: [
       {
         type: "text",
@@ -80,7 +80,7 @@ export const placesLessons: Lesson[] = [
     title: "Places in Town",
     description: "Where do we go?",
     icon: "places",
-    color: "accent",
+    color: "purple",
     content: [
       {
         type: "text",
@@ -162,7 +162,7 @@ export const placesLessons: Lesson[] = [
     title: "Transportation",
     description: "Ways to travel around!",
     icon: "transportation",
-    color: "primary",
+    color: "pink",
     content: [
       {
         type: "text",
@@ -239,7 +239,7 @@ export const placesLessons: Lesson[] = [
     title: "School Supplies",
     description: "Things we use at school!",
     icon: "school",
-    color: "purple",
+    color: "primary",
     content: [
       {
         type: "text",

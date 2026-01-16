@@ -6,7 +6,7 @@ export const languageLessons: Lesson[] = [
     title: "Action Words (Verbs)",
     description: "Words that show what we do!",
     icon: "verbs",
-    color: "pink",
+    color: "secondary",
     content: [
       {
         type: "text",
@@ -163,7 +163,7 @@ export const languageLessons: Lesson[] = [
     title: "Shapes",
     description: "Learn all the shapes!",
     icon: "shapes",
-    color: "secondary",
+    color: "purple",
     content: [
       {
         type: "text",
@@ -237,7 +237,7 @@ export const languageLessons: Lesson[] = [
     title: "Common Phrases",
     description: "Useful everyday sentences!",
     icon: "phrases",
-    color: "primary",
+    color: "pink",
     content: [
       {
         type: "text",

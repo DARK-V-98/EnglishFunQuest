@@ -93,7 +93,7 @@ export const animalsLessons: Lesson[] = [
     title: "Sea Animals",
     description: "Explore creatures of the ocean!",
     icon: "sea-animals",
-    color: "secondary",
+    color: "pink",
     content: [
       {
         type: "text",
@@ -165,7 +165,7 @@ export const animalsLessons: Lesson[] = [
     title: "Insects & Bugs",
     description: "Discover tiny crawling creatures!",
     icon: "insects",
-    color: "pink",
+    color: "primary",
     content: [
       {
         type: "text",

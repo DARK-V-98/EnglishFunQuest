@@ -109,6 +109,7 @@ export default function Home() {
                   e.stopPropagation();
                   toggleFavorite(lesson.id);
                 }}
+                pattern={['A', 'B', 'C'][(index % 3)] as 'A' | 'B' | 'C'}
               />
             </Link>
           ))}

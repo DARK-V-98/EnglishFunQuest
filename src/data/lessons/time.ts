@@ -6,7 +6,7 @@ export const timeLessons: Lesson[] = [
     title: "Days of the Week",
     description: "Learn all 7 days!",
     icon: "days",
-    color: "primary",
+    color: "secondary",
     content: [
       {
         type: "text",
@@ -70,7 +70,7 @@ export const timeLessons: Lesson[] = [
     title: "Months & Seasons",
     description: "All 12 months and 4 seasons!",
     icon: "months",
-    color: "secondary",
+    color: "accent",
     content: [
       {
         type: "text",
@@ -149,7 +149,7 @@ export const timeLessons: Lesson[] = [
     title: "Telling Time",
     description: "Learn to read the clock!",
     icon: "time",
-    color: "accent",
+    color: "purple",
     content: [
       {
         type: "text",
