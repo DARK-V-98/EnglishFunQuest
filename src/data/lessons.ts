@@ -20,6 +20,7 @@ export interface QuizItem {
   options: string[];
   correctAnswer: number;
   image?: string;
+  sinhala_translation?: string;
 }
 
 import { basicsLessons } from "./lessons/basics";

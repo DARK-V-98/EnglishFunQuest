@@ -44,7 +44,7 @@ export const peopleLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "Who is your mother's mother?", options: ["Aunt", "Sister", "Grandmother", "Cousin"], correctAnswer: 2 },
+      { question: "Who is your mother's mother?", sinhala_translation: "[Sinhala Translation]", options: ["Aunt", "Sister", "Grandmother", "Cousin"], correctAnswer: 2 },
       { question: "What do you call your father's brother?", options: ["Brother", "Cousin", "Grandfather", "Uncle"], correctAnswer: 3 },
       { question: "What is another word for 'Mom'?", options: ["Father", "Mother", "Sister", "Aunt"], correctAnswer: 1 },
       { question: "Who is your uncle's daughter?", options: ["Sister", "Aunt", "Cousin", "Niece"], correctAnswer: 2 },
@@ -122,7 +122,7 @@ export const peopleLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What do we see with?", options: ["Ears", "Nose", "Eyes", "Mouth"], correctAnswer: 2, image: "👀" },
+      { question: "What do we see with?", sinhala_translation: "[Sinhala Translation]", options: ["Ears", "Nose", "Eyes", "Mouth"], correctAnswer: 2, image: "👀" },
       { question: "What do we hear with?", options: ["Eyes", "Ears", "Nose", "Hands"], correctAnswer: 1, image: "👂" },
       { question: "What do we smell with?", options: ["Eyes", "Ears", "Nose", "Mouth"], correctAnswer: 2, image: "👃" },
       { question: "How many fingers on one hand?", options: ["4", "5", "6", "10"], correctAnswer: 1, image: "🖐️" },
@@ -199,7 +199,7 @@ export const peopleLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "How do you feel when something good happens?", options: ["Sad", "Angry", "Happy", "Scared"], correctAnswer: 2, image: "😊" },
+      { question: "How do you feel when something good happens?", sinhala_translation: "[Sinhala Translation]", options: ["Sad", "Angry", "Happy", "Scared"], correctAnswer: 2, image: "😊" },
       { question: "What does 'scared' mean?", options: ["Happy", "Afraid", "Excited", "Tired"], correctAnswer: 1, image: "😰" },
       { question: "How do you feel when you're very tired?", options: ["Excited", "Angry", "Sleepy", "Happy"], correctAnswer: 2, image: "😴" },
       { question: "What does 'excited' mean?", options: ["Sad", "Can't wait for something", "Angry", "Tired"], correctAnswer: 1, image: "😄" },
@@ -276,7 +276,7 @@ export const peopleLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "Who helps sick people?", options: ["Teacher", "Doctor", "Farmer", "Chef"], correctAnswer: 1, image: "👨‍⚕️" },
+      { question: "Who helps sick people?", sinhala_translation: "[Sinhala Translation]", options: ["Teacher", "Doctor", "Farmer", "Chef"], correctAnswer: 1, image: "👨‍⚕️" },
       { question: "Who flies airplanes?", options: ["Doctor", "Teacher", "Pilot", "Farmer"], correctAnswer: 2, image: "👨‍✈️" },
       { question: "Who puts out fires?", options: ["Police Officer", "Firefighter", "Doctor", "Teacher"], correctAnswer: 1, image: "🧑‍🚒" },
       { question: "Who helps children learn?", options: ["Doctor", "Pilot", "Teacher", "Chef"], correctAnswer: 2, image: "👨‍🏫" },

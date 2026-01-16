@@ -46,7 +46,7 @@ export const languageLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What does 'run' mean?", options: ["Sit still", "Move fast", "Sleep", "Eat"], correctAnswer: 1, image: "🏃" },
+      { question: "What does 'run' mean?", sinhala_translation: "[Sinhala Translation]", options: ["Sit still", "Move fast", "Sleep", "Eat"], correctAnswer: 1, image: "🏃" },
       { question: "What does 'eat' mean?", options: ["Drink", "Sleep", "Put food in mouth", "Walk"], correctAnswer: 2, image: "🍽️" },
       { question: "What does 'sleep' mean?", options: ["Run", "Rest with eyes closed", "Eat", "Dance"], correctAnswer: 1, image: "😴" },
       { question: "What does 'jump' mean?", options: ["Walk slowly", "Go down", "Go up in air", "Sit"], correctAnswer: 2, image: "🦘" },
@@ -126,7 +126,7 @@ export const languageLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What is the opposite of big?", options: ["Large", "Huge", "Small", "Tall"], correctAnswer: 2 },
+      { question: "What is the opposite of big?", sinhala_translation: "[Sinhala Translation]", options: ["Large", "Huge", "Small", "Tall"], correctAnswer: 2 },
       { question: "What is the opposite of hot?", options: ["Warm", "Cold", "Burning", "Fire"], correctAnswer: 1 },
       { question: "What is the opposite of happy?", options: ["Glad", "Excited", "Joyful", "Sad"], correctAnswer: 3 },
       { question: "What is the opposite of up?", options: ["High", "Above", "Down", "Over"], correctAnswer: 2 },
@@ -200,7 +200,7 @@ export const languageLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "How many sides does a triangle have?", options: ["2", "3", "4", "5"], correctAnswer: 1, image: "📐" },
+      { question: "How many sides does a triangle have?", sinhala_translation: "[Sinhala Translation]", options: ["2", "3", "4", "5"], correctAnswer: 1, image: "📐" },
       { question: "What shape has no corners?", options: ["Square", "Triangle", "Circle", "Rectangle"], correctAnswer: 2, image: "⭕" },
       { question: "How many sides does a square have?", options: ["3", "4", "5", "6"], correctAnswer: 1, image: "⬛" },
       { question: "What shape is a stop sign?", options: ["Circle", "Square", "Octagon", "Triangle"], correctAnswer: 2 },
@@ -279,7 +279,7 @@ export const languageLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What do you say when asking for something?", options: ["Thank you", "Sorry", "Please", "Goodbye"], correctAnswer: 2 },
+      { question: "What do you say when asking for something?", sinhala_translation: "[Sinhala Translation]", options: ["Thank you", "Sorry", "Please", "Goodbye"], correctAnswer: 2 },
       { question: "What do you say when someone helps you?", options: ["Please", "Sorry", "Goodbye", "Thank you"], correctAnswer: 3 },
       { question: "How do you reply to 'Thank you'?", options: ["Please", "You're welcome", "Sorry", "Hello"], correctAnswer: 1 },
       { question: "What do you say when you make a mistake?", options: ["Thank you", "Please", "Sorry", "Hello"], correctAnswer: 2 },

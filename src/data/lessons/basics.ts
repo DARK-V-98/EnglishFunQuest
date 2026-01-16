@@ -63,7 +63,7 @@ export const basicsLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "Which letter does 'Apple' start with?", options: ["A", "B", "C", "D"], correctAnswer: 0, image: "🍎" },
+      { question: "Which letter does 'Apple' start with?", sinhala_translation: "[Sinhala Translation]", options: ["A", "B", "C", "D"], correctAnswer: 0, image: "🍎" },
       { question: "Which letter does 'Cat' start with?", options: ["A", "B", "C", "D"], correctAnswer: 2, image: "🐱" },
       { question: "Which letter does 'Dog' start with?", options: ["B", "C", "D", "E"], correctAnswer: 2, image: "🐕" },
       { question: "What comes after A in the alphabet?", options: ["C", "B", "D", "E"], correctAnswer: 1 },
@@ -162,7 +162,7 @@ export const basicsLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "How do you spell the number 3?", options: ["Two", "Three", "Four", "Five"], correctAnswer: 1, image: "3️⃣" },
+      { question: "How do you spell the number 3?", sinhala_translation: "[Sinhala Translation]", options: ["Two", "Three", "Four", "Five"], correctAnswer: 1, image: "3️⃣" },
       { question: "What number comes after 7?", options: ["6", "8", "9", "10"], correctAnswer: 1 },
       { question: "How do you spell 5?", options: ["Four", "Five", "Six", "Seven"], correctAnswer: 1, image: "🖐️" },
       { question: "What is 10 + 5?", options: ["Thirteen", "Fourteen", "Fifteen", "Sixteen"], correctAnswer: 2 },
@@ -242,7 +242,7 @@ export const basicsLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What color is the sun?", options: ["Blue", "Green", "Yellow", "Red"], correctAnswer: 2, image: "☀️" },
+      { question: "What color is the sun?", sinhala_translation: "[Sinhala Translation]", options: ["Blue", "Green", "Yellow", "Red"], correctAnswer: 2, image: "☀️" },
       { question: "What color is grass?", options: ["Green", "Blue", "Yellow", "Orange"], correctAnswer: 0, image: "🌿" },
       { question: "What color is the sky on a clear day?", options: ["Green", "Blue", "Red", "Yellow"], correctAnswer: 1, image: "🌤️" },
       { question: "What color is an apple?", options: ["Blue", "Green or Red", "Purple", "Orange"], correctAnswer: 1, image: "🍎" },

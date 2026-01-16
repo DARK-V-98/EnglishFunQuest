@@ -46,7 +46,7 @@ export const funLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What is a soft cuddly toy?", options: ["Ball", "Puzzle", "Teddy Bear", "Car"], correctAnswer: 2, image: "🧸" },
+      { question: "What is a soft cuddly toy?", sinhala_translation: "[Sinhala Translation]", options: ["Ball", "Puzzle", "Teddy Bear", "Car"], correctAnswer: 2, image: "🧸" },
       { question: "What do you fly in the wind?", options: ["Ball", "Kite", "Doll", "Puzzle"], correctAnswer: 1, image: "🪁" },
       { question: "What has pieces that fit together?", options: ["Doll", "Ball", "Puzzle", "Car"], correctAnswer: 2, image: "🧩" },
       { question: "What game uses a board?", options: ["Video game", "Board game", "Running", "Swimming"], correctAnswer: 1, image: "🎲" },
@@ -123,7 +123,7 @@ export const funLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What sport do you kick a ball?", options: ["Basketball", "Baseball", "Soccer", "Tennis"], correctAnswer: 2, image: "⚽" },
+      { question: "What sport do you kick a ball?", sinhala_translation: "[Sinhala Translation]", options: ["Basketball", "Baseball", "Soccer", "Tennis"], correctAnswer: 2, image: "⚽" },
       { question: "What sport uses a hoop?", options: ["Soccer", "Basketball", "Tennis", "Baseball"], correctAnswer: 1, image: "🏀" },
       { question: "What sport do you swim?", options: ["Soccer", "Running", "Swimming", "Tennis"], correctAnswer: 2, image: "🏊" },
       { question: "What sport uses a bat?", options: ["Soccer", "Basketball", "Tennis", "Baseball"], correctAnswer: 3, image: "⚾" },
@@ -204,7 +204,7 @@ export const funLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What instrument has strings you strum?", options: ["Drum", "Flute", "Guitar", "Trumpet"], correctAnswer: 2, image: "🎸" },
+      { question: "What instrument has strings you strum?", sinhala_translation: "[Sinhala Translation]", options: ["Drum", "Flute", "Guitar", "Trumpet"], correctAnswer: 2, image: "🎸" },
       { question: "What instrument do you blow?", options: ["Guitar", "Drum", "Flute", "Piano"], correctAnswer: 2, image: "🪈" },
       { question: "What instrument do you hit with sticks?", options: ["Guitar", "Flute", "Piano", "Drums"], correctAnswer: 3, image: "🥁" },
       { question: "What instrument has black and white keys?", options: ["Guitar", "Piano", "Flute", "Drum"], correctAnswer: 1, image: "🎹" },
@@ -280,7 +280,7 @@ export const funLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What is tall with a trunk?", options: ["Flower", "Grass", "Tree", "Bush"], correctAnswer: 2, image: "🌳" },
+      { question: "What is tall with a trunk?", sinhala_translation: "[Sinhala Translation]", options: ["Flower", "Grass", "Tree", "Bush"], correctAnswer: 2, image: "🌳" },
       { question: "What is colorful and pretty?", options: ["Rock", "Flower", "Dirt", "Sand"], correctAnswer: 1, image: "🌸" },
       { question: "What covers the ground and is green?", options: ["Water", "Grass", "Rocks", "Sand"], correctAnswer: 1, image: "🌿" },
       { question: "What lives in the desert?", options: ["Palm tree", "Cactus", "Rose", "Oak tree"], correctAnswer: 1, image: "🌵" },

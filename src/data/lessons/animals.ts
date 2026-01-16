@@ -56,7 +56,7 @@ export const animalsLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What does a dog say?", options: ["Meow", "Woof", "Moo", "Quack"], correctAnswer: 1, image: "🐕" },
+      { question: "What does a dog say?", sinhala_translation: "[Sinhala Translation]", options: ["Meow", "Woof", "Moo", "Quack"], correctAnswer: 1, image: "🐕" },
       { question: "Which animal has a long neck?", options: ["Elephant", "Lion", "Giraffe", "Bear"], correctAnswer: 2, image: "🦒" },
       { question: "What does a cat say?", options: ["Woof", "Meow", "Oink", "Baa"], correctAnswer: 1, image: "🐱" },
       { question: "Which animal can fly?", options: ["Dog", "Fish", "Bird", "Cat"], correctAnswer: 2, image: "🐦" },
@@ -128,7 +128,7 @@ export const animalsLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "Which sea animal is the biggest?", options: ["Shark", "Dolphin", "Whale", "Octopus"], correctAnswer: 2, image: "🐳" },
+      { question: "Which sea animal is the biggest?", sinhala_translation: "[Sinhala Translation]", options: ["Shark", "Dolphin", "Whale", "Octopus"], correctAnswer: 2, image: "🐳" },
       { question: "How many arms does an octopus have?", options: ["6", "8", "10", "12"], correctAnswer: 1, image: "🐙" },
       { question: "Which animal walks sideways?", options: ["Fish", "Crab", "Whale", "Dolphin"], correctAnswer: 1, image: "🦀" },
       { question: "Which bird can swim but not fly?", options: ["Eagle", "Penguin", "Duck", "Parrot"], correctAnswer: 1, image: "🐧" },
@@ -200,7 +200,7 @@ export const animalsLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "How many legs do insects have?", options: ["4", "6", "8", "10"], correctAnswer: 1 },
+      { question: "How many legs do insects have?", sinhala_translation: "[Sinhala Translation]", options: ["4", "6", "8", "10"], correctAnswer: 1 },
       { question: "Which insect makes honey?", options: ["Fly", "Ant", "Bee", "Butterfly"], correctAnswer: 2, image: "🐝" },
       { question: "What does a caterpillar become?", options: ["Bee", "Butterfly", "Ant", "Fly"], correctAnswer: 1, image: "🐛" },
       { question: "How many legs does a spider have?", options: ["6", "8", "10", "4"], correctAnswer: 1, image: "🕷️" },

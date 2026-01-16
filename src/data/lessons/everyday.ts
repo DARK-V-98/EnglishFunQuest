@@ -44,7 +44,7 @@ export const everydayLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What do you say when you meet someone?", options: ["Goodbye", "Good night", "Hello", "Thank you"], correctAnswer: 2, image: "👋" },
+      { question: "What do you say when you meet someone?", sinhala_translation: "[Sinhala Translation]", options: ["Goodbye", "Good night", "Hello", "Thank you"], correctAnswer: 2, image: "👋" },
       { question: "What do you say before going to bed?", options: ["Good morning", "Good afternoon", "Good night", "Hello"], correctAnswer: 2, image: "🌙" },
       { question: "What do you say in the morning?", options: ["Good night", "Good morning", "Good evening", "Goodbye"], correctAnswer: 1, image: "🌅" },
       { question: "What do you say when leaving?", options: ["Hello", "Hi", "Goodbye", "Good morning"], correctAnswer: 2, image: "👋" },
@@ -135,7 +135,7 @@ export const everydayLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What color is a banana?", options: ["Red", "Green", "Yellow", "Blue"], correctAnswer: 2, image: "🍌" },
+      { question: "What color is a banana?", sinhala_translation: "[Sinhala Translation]", options: ["Red", "Green", "Yellow", "Blue"], correctAnswer: 2, image: "🍌" },
       { question: "Which food is good for your eyes?", options: ["Pizza", "Carrot", "Ice cream", "Cookie"], correctAnswer: 1, image: "🥕" },
       { question: "What drink makes bones strong?", options: ["Juice", "Water", "Milk", "Soda"], correctAnswer: 2, image: "🥛" },
       { question: "Which is a fruit?", options: ["Carrot", "Broccoli", "Apple", "Lettuce"], correctAnswer: 2, image: "🍎" },
@@ -216,7 +216,7 @@ export const everydayLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What do you wear on your feet?", options: ["Hat", "Gloves", "Shoes", "Scarf"], correctAnswer: 2, image: "👟" },
+      { question: "What do you wear on your feet?", sinhala_translation: "[Sinhala Translation]", options: ["Hat", "Gloves", "Shoes", "Scarf"], correctAnswer: 2, image: "👟" },
       { question: "What keeps your hands warm?", options: ["Socks", "Gloves", "Hat", "Scarf"], correctAnswer: 1, image: "🧤" },
       { question: "What do you wear under your shoes?", options: ["Gloves", "Hat", "Socks", "Scarf"], correctAnswer: 2, image: "🧦" },
       { question: "What keeps you warm in winter?", options: ["T-shirt", "Sandals", "Jacket", "Shorts"], correctAnswer: 2, image: "🧥" },
@@ -292,7 +292,7 @@ export const everydayLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What falls from clouds when it rains?", options: ["Snow", "Water", "Sun", "Wind"], correctAnswer: 1, image: "🌧️" },
+      { question: "What falls from clouds when it rains?", sinhala_translation: "[Sinhala Translation]", options: ["Snow", "Water", "Sun", "Wind"], correctAnswer: 1, image: "🌧️" },
       { question: "What is in the sky on a sunny day?", options: ["Clouds", "Snow", "Rain", "Sun"], correctAnswer: 3, image: "☀️" },
       { question: "What weather is white and cold?", options: ["Sunny", "Rainy", "Snowy", "Windy"], correctAnswer: 2, image: "❄️" },
       { question: "What makes trees bend?", options: ["Sun", "Rain", "Wind", "Snow"], correctAnswer: 2, image: "💨" },

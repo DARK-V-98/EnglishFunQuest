@@ -43,7 +43,7 @@ export const placesLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "Where do we cook food?", options: ["Bedroom", "Kitchen", "Bathroom", "Living room"], correctAnswer: 1, image: "🍳" },
+      { question: "Where do we cook food?", sinhala_translation: "[Sinhala Translation]", options: ["Bedroom", "Kitchen", "Bathroom", "Living room"], correctAnswer: 1, image: "🍳" },
       { question: "Where do we sleep?", options: ["Kitchen", "Bathroom", "Bedroom", "Garage"], correctAnswer: 2, image: "🛏️" },
       { question: "Where do we take a bath?", options: ["Bedroom", "Kitchen", "Living room", "Bathroom"], correctAnswer: 3, image: "🛁" },
       { question: "Where do we watch TV?", options: ["Bathroom", "Bedroom", "Living room", "Kitchen"], correctAnswer: 2, image: "🛋️" },
@@ -125,7 +125,7 @@ export const placesLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "Where do we learn?", options: ["Hospital", "School", "Store", "Bank"], correctAnswer: 1, image: "🏫" },
+      { question: "Where do we learn?", sinhala_translation: "[Sinhala Translation]", options: ["Hospital", "School", "Store", "Bank"], correctAnswer: 1, image: "🏫" },
       { question: "Where do doctors work?", options: ["School", "Bank", "Hospital", "Store"], correctAnswer: 2, image: "🏥" },
       { question: "Where do we buy things?", options: ["School", "Hospital", "Park", "Store"], correctAnswer: 3, image: "🏪" },
       { question: "Where is money kept safe?", options: ["School", "Bank", "Store", "Hospital"], correctAnswer: 1, image: "🏦" },
@@ -202,7 +202,7 @@ export const placesLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What flies in the sky?", options: ["Car", "Boat", "Airplane", "Bus"], correctAnswer: 2, image: "✈️" },
+      { question: "What flies in the sky?", sinhala_translation: "[Sinhala Translation]", options: ["Car", "Boat", "Airplane", "Bus"], correctAnswer: 2, image: "✈️" },
       { question: "What has 2 wheels and you pedal?", options: ["Car", "Bicycle", "Boat", "Train"], correctAnswer: 1, image: "🚲" },
       { question: "What travels on tracks?", options: ["Car", "Bus", "Boat", "Train"], correctAnswer: 3, image: "🚂" },
       { question: "What floats on water?", options: ["Car", "Plane", "Boat", "Bicycle"], correctAnswer: 2, image: "⛵" },
@@ -283,7 +283,7 @@ export const placesLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "What do we write with?", options: ["Ruler", "Pencil", "Eraser", "Scissors"], correctAnswer: 1, image: "✏️" },
+      { question: "What do we write with?", sinhala_translation: "[Sinhala Translation]", options: ["Ruler", "Pencil", "Eraser", "Scissors"], correctAnswer: 1, image: "✏️" },
       { question: "What fixes mistakes?", options: ["Pen", "Ruler", "Eraser", "Scissors"], correctAnswer: 2, image: "🗑️" },
       { question: "What cuts paper?", options: ["Pen", "Pencil", "Ruler", "Scissors"], correctAnswer: 3, image: "✂️" },
       { question: "What measures things?", options: ["Pencil", "Ruler", "Eraser", "Pen"], correctAnswer: 1, image: "📏" },

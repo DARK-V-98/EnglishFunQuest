@@ -21,12 +21,16 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ReadAloudButton } from "@/components/ReadAloudButton";
-import { useUser } from "@/firebase";
+import { useUser, useFirestore } from "@/firebase";
+import { doc, getDoc, DocumentData } from 'firebase/firestore';
+
 
 const LessonPage = () => {
   const params = useParams();
   const router = useRouter();
   const { user, isUserLoading } = useUser();
+  const firestore = useFirestore();
+  const [userData, setUserData] = useState<DocumentData | null>(null);
   const lessonId = params.lessonId as string;
   const { progress, saveProgress } = useProgress();
   const { checkAchievements } = useAchievements();
@@ -43,6 +47,19 @@ const LessonPage = () => {
       router.push('/login');
     }
   }, [user, isUserLoading, router]);
+
+  useEffect(() => {
+    if (user && firestore) {
+      const fetchUserData = async () => {
+        const userDocRef = doc(firestore, "users", user.uid);
+        const userDoc = await getDoc(userDocRef);
+        if (userDoc.exists()) {
+          setUserData(userDoc.data());
+        }
+      };
+      fetchUserData();
+    }
+  }, [user, firestore]);
 
   useEffect(() => {
     if (quizComplete && lesson) {
@@ -311,6 +328,7 @@ const LessonPage = () => {
               image={lesson.quiz[currentQuiz].image}
               onCorrect={handleCorrect}
               onWrong={handleWrong}
+              translation={userData?.country === 'Sri Lanka' ? lesson.quiz[currentQuiz].sinhala_translation : undefined}
             />
           </div>
         )}

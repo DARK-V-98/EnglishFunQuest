@@ -13,6 +13,7 @@ interface QuizQuestionProps {
   image?: string;
   onCorrect: () => void;
   onWrong: () => void;
+  translation?: string;
 }
 
 export function QuizQuestion({
@@ -22,6 +23,7 @@ export function QuizQuestion({
   image,
   onCorrect,
   onWrong,
+  translation,
 }: QuizQuestionProps) {
   const [selected, setSelected] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -75,12 +77,18 @@ export function QuizQuestion({
         </div>
       )}
       
-      <div className="flex items-center justify-center gap-2 mb-8">
+      <div className="flex items-center justify-center gap-2 mb-4">
         <h3 className="text-2xl font-heading text-center text-foreground">
           {question}
         </h3>
         <ReadAloudButton text={question} />
       </div>
+
+      {translation && (
+        <div className="text-center text-muted-foreground mb-6 text-lg font-body">
+          {translation}
+        </div>
+      )}
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {options.map((option, index) => (

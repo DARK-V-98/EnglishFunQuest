@@ -33,7 +33,7 @@ export const timeLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "How many days are in a week?", options: ["5", "6", "7", "8"], correctAnswer: 2 },
+      { question: "How many days are in a week?", sinhala_translation: "[Sinhala Translation]", options: ["5", "6", "7", "8"], correctAnswer: 2 },
       { question: "What day comes after Monday?", options: ["Sunday", "Tuesday", "Wednesday", "Friday"], correctAnswer: 1 },
       { question: "Which day starts the weekend?", options: ["Friday", "Saturday", "Sunday", "Monday"], correctAnswer: 1 },
       { question: "What day comes before Friday?", options: ["Monday", "Tuesday", "Wednesday", "Thursday"], correctAnswer: 3 },
@@ -112,7 +112,7 @@ export const timeLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "How many months are in a year?", options: ["10", "11", "12", "13"], correctAnswer: 2 },
+      { question: "How many months are in a year?", sinhala_translation: "[Sinhala Translation]", options: ["10", "11", "12", "13"], correctAnswer: 2 },
       { question: "Which month is first?", options: ["December", "January", "February", "March"], correctAnswer: 1 },
       { question: "How many seasons are there?", options: ["2", "3", "4", "5"], correctAnswer: 2 },
       { question: "Which month is Halloween?", options: ["September", "October", "November", "December"], correctAnswer: 1, image: "🎃" },
@@ -187,7 +187,7 @@ export const timeLessons: Lesson[] = [
       },
     ],
     quiz: [
-      { question: "How many hands does a clock have?", options: ["1", "2", "3", "4"], correctAnswer: 1, image: "⏰" },
+      { question: "How many hands does a clock have?", sinhala_translation: "[Sinhala Translation]", options: ["1", "2", "3", "4"], correctAnswer: 1, image: "⏰" },
       { question: "What does the short hand show?", options: ["Minutes", "Hours", "Seconds", "Days"], correctAnswer: 1 },
       { question: "What does the long hand show?", options: ["Hours", "Minutes", "Days", "Months"], correctAnswer: 1 },
       { question: "What is 12:00 called?", options: ["One o'clock", "Twelve o'clock", "Noon", "Both B and C"], correctAnswer: 3 },
