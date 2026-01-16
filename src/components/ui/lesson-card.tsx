@@ -39,7 +39,7 @@ export function LessonCard({
     <button
       onClick={onClick}
       className={cn(
-        "relative w-full p-6 rounded-3xl border-4 transition-all duration-300 hover-bounce card-shadow text-left",
+        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left transition-shadow",
         colorClasses[color]
       )}
     >
