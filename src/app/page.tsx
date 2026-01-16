@@ -63,8 +63,8 @@ export default function LandingPage() {
             <Image
                 src="/logo.png"
                 alt="English Fun Quest Logo"
-                width={160}
-                height={160}
+                width={640}
+                height={640}
                 className="mb-6 bounce-in"
             />
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading mb-4">
