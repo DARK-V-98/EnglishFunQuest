@@ -31,7 +31,7 @@ export default function Home() {
             <Globe className="w-8 h-8" />
             <span className="font-heading text-xl">Learn English Kids</span>
           </div>
-          <div className="text-sm opacity-90">by esystem lk • 100% Free</div>
+          <div className="text-sm opacity-90">by ESYSTEMLK • 100% Free</div>
         </div>
       </header>
 
@@ -111,8 +111,8 @@ export default function Home() {
             <span className="font-heading text-lg">Learn English Kids</span>
           </div>
           <p className="text-muted-foreground mb-2">This educational platform is provided <strong className="text-primary">completely free</strong> by</p>
-          <p className="text-xl font-heading text-gradient mb-4">esystem lk</p>
-          <p className="text-sm text-muted-foreground">© 2024 esystem lk. All rights reserved. Made with ❤️ for kids learning English.</p>
+          <p className="text-xl font-heading text-gradient mb-4">ESYSTEMLK</p>
+          <p className="text-sm text-muted-foreground">© 2024 ESYSTEMLK. All rights reserved. Made with ❤️ for kids learning English.</p>
         </div>
       </footer>
     </div>
