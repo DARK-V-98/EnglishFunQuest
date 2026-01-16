@@ -131,6 +131,7 @@ const GrammarLessonPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {quizComplete && score === lesson.quiz.length && <Confetti />}
       {/* Header */}
       <header className={cn(
         "bg-gradient-to-r text-white p-6",
@@ -242,7 +243,6 @@ const GrammarLessonPage = () => {
           </div>
         ) : quizComplete ? (
           <>
-            {score === lesson.quiz.length && <Confetti />}
             <div className="text-center py-12 bounce-in">
               <div className="inline-flex items-center justify-center w-24 h-24 bg-warning/20 rounded-full mb-6">
                 <Trophy className="w-12 h-12 text-warning" />

@@ -21,6 +21,7 @@ import { useFirestore } from '@/firebase';
 import { AuthButtons } from '@/components/AuthButtons';
 import { UserStats } from '@/components/UserStats';
 import { OnboardingTour } from '@/components/OnboardingTour';
+import { WordOfTheDay } from '@/components/WordOfTheDay';
 
 const TOUR_STORAGE_KEY = 'english-fun-quest-onboarding-complete';
 
@@ -108,6 +109,8 @@ export default function DashboardPage() {
         <main className="flex items-center justify-center py-12 px-4">
           <div className="w-full max-w-4xl space-y-8">
             <UserStats points={userData.points} streak={userData.streak} />
+
+            <WordOfTheDay />
 
             {userData.country === 'Sri Lanka' && (
               <div className="bg-primary/10 text-primary p-4 rounded-2xl flex items-center justify-center gap-3 card-shadow border-2 border-primary/20">
