@@ -16,6 +16,7 @@ import {
   Book,
   BookHeart,
   User,
+  BookText,
 } from 'lucide-react';
 import { doc, getDoc } from 'firebase/firestore';
 import { useFirestore } from '@/firebase';
@@ -128,7 +129,7 @@ export default function DashboardPage() {
         <section>
           <h2 className="text-3xl font-heading text-center mb-6">Where to next?</h2>
           <div className="bg-card rounded-3xl p-8 card-shadow border-4 border-muted">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
               <Link href="/">
                 <KidButton variant="outline" className="w-full h-28 flex-col">
                   <BookOpen className="w-8 h-8" />
@@ -151,6 +152,12 @@ export default function DashboardPage() {
                 <KidButton variant="outline" className="w-full h-28 flex-col">
                   <BookHeart className="w-8 h-8" />
                   Story Time
+                </KidButton>
+              </Link>
+              <Link href="/grammar">
+                <KidButton variant="outline" className="w-full h-28 flex-col">
+                  <BookText className="w-8 h-8" />
+                  Grammar
                 </KidButton>
               </Link>
             </div>

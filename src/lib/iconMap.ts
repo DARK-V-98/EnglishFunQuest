@@ -3,7 +3,7 @@ import {
   Users, User, Utensils, Zap, Fish, Bug, Clock, Heart, Briefcase, Shirt, CloudSun,
   Home as HomeIcon, MapPin, Bus, GraduationCap, Gamepad2, Medal, Music, TreePine, Shapes, 
   MessageSquare, ArrowLeftRight, BookHeart, BrainCircuit, Footprints, FerrisWheel,
-  Paintbrush as PaintbrushIcon, Move, PenTool, Building2
+  Paintbrush as PaintbrushIcon, Move, PenTool, Building2, BookText
 } from "lucide-react";
 
 export const iconMap: { [key: string]: any } = {
@@ -24,4 +24,5 @@ export const iconMap: { [key: string]: any } = {
   prepositions: Move,
   adjectives: PenTool,
   "community-helpers": Building2,
+  "grammar": BookText,
 };

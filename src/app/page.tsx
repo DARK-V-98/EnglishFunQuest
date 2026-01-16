@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import type { Lesson } from "@/data/lessons";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
-import { Sparkles, Star, Globe, Heart, Book, BookHeart, Trophy } from "lucide-react";
+import { Sparkles, Star, Globe, Heart, Book, BookHeart, Trophy, BookText } from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
 import { useFavorites } from "@/hooks/use-favorites";
 import { useProgress } from "@/hooks/use-progress";
@@ -58,6 +58,12 @@ export default function Home() {
               <KidButton variant="ghost" className="text-white hover:bg-white/20">
                 <Book className="w-5 h-5" />
                 Glossary
+              </KidButton>
+            </Link>
+            <Link href="/grammar">
+              <KidButton variant="ghost" className="text-white hover:bg-white/20">
+                <BookText className="w-5 h-5" />
+                Grammar
               </KidButton>
             </Link>
             <AuthButtons />
