@@ -6,8 +6,10 @@ import { KidButton } from '@/components/ui/kid-button';
 import { ArrowLeft, BookText } from 'lucide-react';
 import { LessonCard } from '@/components/ui/lesson-card';
 import { iconMap } from '@/lib/iconMap';
+import { useFavorites } from '@/hooks/use-favorites';
 
 export default function GrammarPage() {
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   return (
     <div className="min-h-screen bg-background">
@@ -33,6 +35,12 @@ export default function GrammarPage() {
                 icon={iconMap[lesson.icon] || BookText}
                 color={['primary', 'secondary', 'accent', 'purple', 'pink'][index % 5] as any}
                 pattern={['A', 'B', 'C'][(index % 3)] as 'A' | 'B' | 'C'}
+                isFavorite={isFavorite(lesson.id)}
+                onToggleFavorite={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleFavorite(lesson.id);
+                }}
               />
             </Link>
           ))}
