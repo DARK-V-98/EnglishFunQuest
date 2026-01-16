@@ -7,6 +7,7 @@ import { KidButton } from "@/components/ui/kid-button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { Menu, BookHeart, Trophy, Heart, Book, BookText, Zap, Star, ShieldCheck, PlayCircle, BookOpen, Lightbulb, Crown } from "lucide-react";
+import { InstallPwaButton } from "@/components/InstallPwaButton";
 
 export default function LandingPage() {
   return (
@@ -48,6 +49,7 @@ export default function LandingPage() {
                   <SheetClose asChild><Link href="/achievements"><KidButton variant="ghost" className="w-full justify-start"><Trophy className="w-5 h-5" />Achievements</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/favorites"><KidButton variant="ghost" className="w-full justify-start"><Heart className="w-5 h-5" />Favorites</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/glossary"><KidButton variant="ghost" className="w-full justify-start"><Book className="w-5 h-5" />Glossary</KidButton></Link></SheetClose>
+                  <InstallPwaButton />
                 </nav>
               </SheetContent>
             </Sheet>

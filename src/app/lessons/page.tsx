@@ -18,6 +18,7 @@ import { iconMap } from "@/lib/iconMap";
 import { AuthButtons } from '@/components/AuthButtons';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
+import { InstallPwaButton } from "@/components/InstallPwaButton";
 
 
 const categoryInfo: { [key: string]: { title: string; icon: any } } = {
@@ -84,6 +85,7 @@ export default function LessonsPage() {
                   <SheetClose asChild><Link href="/achievements"><KidButton variant="ghost" className="w-full justify-start"><Trophy className="w-5 h-5" />Achievements</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/favorites"><KidButton variant="ghost" className="w-full justify-start"><Heart className="w-5 h-5" />Favorites</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/glossary"><KidButton variant="ghost" className="w-full justify-start"><Book className="w-5 h-5" />Glossary</KidButton></Link></SheetClose>
+                  <InstallPwaButton />
                 </nav>
               </SheetContent>
             </Sheet>
