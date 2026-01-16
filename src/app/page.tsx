@@ -95,7 +95,7 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl font-heading text-foreground">Choose a Lesson</h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
           {lessons.map((lesson, index) => (
             <Link key={lesson.id} href={`/lesson/${lesson.id}`} style={{ animationDelay: `${index * 0.05}s` }} className="bounce-in block">
               <LessonCard

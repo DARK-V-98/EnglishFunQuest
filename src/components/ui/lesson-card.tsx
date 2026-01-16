@@ -41,7 +41,7 @@ export function LessonCard({
   return (
     <div
       className={cn(
-        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left transition-shadow cursor-pointer h-full",
+        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left transition-shadow cursor-pointer h-full flex flex-col",
         colorClasses[color]
       )}
     >
@@ -55,7 +55,7 @@ export function LessonCard({
           <Star className={cn("w-7 h-7 transition-all", isFavorite ? "fill-warning" : "fill-transparent stroke-current")} />
         </KidButton>
       )}
-      <div className="flex items-start gap-4">
+      <div className="flex items-start gap-4 flex-grow">
         <div
           className={cn(
             "p-4 rounded-2xl text-white shadow-lg",
@@ -65,7 +65,7 @@ export function LessonCard({
           <Icon className="w-8 h-8" />
         </div>
         <div className="flex-1">
-          <h3 className="text-xl font-heading text-foreground mb-1 flex items-center min-h-14">{title}</h3>
+          <h3 className="text-xl font-heading text-foreground mb-1">{title}</h3>
           <p className="text-muted-foreground font-body text-sm">{description}</p>
         </div>
       </div>

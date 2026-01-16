@@ -28,7 +28,7 @@ export default function FavoritesPage() {
 
       <main className="max-w-6xl mx-auto px-4 py-8">
         {favoriteLessons.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
             {favoriteLessons.map((lesson, index) => (
               <Link key={lesson.id} href={`/lesson/${lesson.id}`} style={{ animationDelay: `${index * 0.05}s` }} className="bounce-in block">
                 <LessonCard
