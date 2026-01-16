@@ -31,6 +31,19 @@
         "country": {
           "type": "string",
           "description": "The user's country of residence."
+        },
+        "points": {
+          "type": "number",
+          "description": "Total points earned by the user from quizzes and activities."
+        },
+        "streak": {
+          "type": "number",
+          "description": "Current consecutive daily learning streak."
+        },
+        "lastLessonCompletedDate": {
+          "type": "string",
+          "description": "The date the user last completed a lesson, in YYYY-MM-DD format.",
+          "format": "date"
         }
       },
       "required": [

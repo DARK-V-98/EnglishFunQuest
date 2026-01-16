@@ -24,6 +24,7 @@ import { cn } from "@/lib/utils";
 import { ReadAloudButton } from "@/components/ReadAloudButton";
 import { useUser, useFirestore } from "@/firebase";
 import { doc, getDoc, DocumentData } from 'firebase/firestore';
+import { useUserStats } from "@/hooks/useUserStats";
 
 
 const GrammarLessonPage = () => {
@@ -35,6 +36,7 @@ const GrammarLessonPage = () => {
   const lessonId = params.lessonId as string;
   const { progress, saveProgress } = useProgress();
   const { checkAchievements } = useAchievements();
+  const { updateUserStats } = useUserStats();
 
   const [isLearning, setIsLearning] = useState(true);
   const [currentQuiz, setCurrentQuiz] = useState(0);
@@ -62,8 +64,9 @@ const GrammarLessonPage = () => {
     if (quizComplete && lesson && user) {
       // Only save progress if user is logged in
       saveProgress(lesson.id, score, lesson.quiz.length);
+      updateUserStats(score, lesson.quiz.length);
     }
-  }, [quizComplete, lesson, score, saveProgress, user]);
+  }, [quizComplete, lesson, score, saveProgress, user, updateUserStats]);
   
   useEffect(() => {
     if (Object.keys(progress).length > 0 && user) {

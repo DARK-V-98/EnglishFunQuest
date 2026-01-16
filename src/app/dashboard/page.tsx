@@ -17,12 +17,20 @@ import {
 import { doc, getDoc } from 'firebase/firestore';
 import { useFirestore } from '@/firebase';
 import { AuthButtons } from '@/components/AuthButtons';
+import { UserStats } from '@/components/UserStats';
+
+interface UserData {
+  firstName: string;
+  country: string;
+  points: number;
+  streak: number;
+}
 
 export default function DashboardPage() {
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
   const router = useRouter();
-  const [country, setCountry] = useState('');
+  const [userData, setUserData] = useState<UserData | null>(null);
 
   useEffect(() => {
     if (!isUserLoading && !user) {
@@ -33,15 +41,27 @@ export default function DashboardPage() {
         const userDocRef = doc(firestore, 'users', user.uid);
         const userDoc = await getDoc(userDocRef);
         if (userDoc.exists()) {
-          const userData = userDoc.data();
-          setCountry(userData.country);
+          const data = userDoc.data();
+          setUserData({
+            firstName: data.firstName || '',
+            country: data.country || '',
+            points: data.points || 0,
+            streak: data.streak || 0,
+          });
         }
       };
       fetchUserData();
     }
   }, [user, isUserLoading, router, firestore]);
 
-  if (isUserLoading || !user) {
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good Morning";
+    if (hour < 18) return "Good Afternoon";
+    return "Good Evening";
+  };
+
+  if (isUserLoading || !user || !userData) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         Loading...
@@ -54,15 +74,17 @@ export default function DashboardPage() {
       <header className="bg-gradient-to-r from-primary via-secondary to-accent p-6 text-white">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <h1 className="text-2xl sm:text-3xl font-heading">
-            Main Menu
+            {getGreeting()}, {userData.firstName}!
           </h1>
           <AuthButtons />
         </div>
       </header>
       <main className="flex items-center justify-center py-12 px-4">
-        <div className="w-full max-w-4xl">
-          {country === 'Sri Lanka' && (
-            <div className="bg-primary/10 text-primary p-4 rounded-2xl mb-8 flex items-center justify-center gap-3 card-shadow border-2 border-primary/20">
+        <div className="w-full max-w-4xl space-y-8">
+          <UserStats points={userData.points} streak={userData.streak} />
+
+          {userData.country === 'Sri Lanka' && (
+            <div className="bg-primary/10 text-primary p-4 rounded-2xl flex items-center justify-center gap-3 card-shadow border-2 border-primary/20">
               <Globe className="w-6 h-6" />
               <p className="font-bold">
                 Look for the 'Show Sinhala Translation' button in quizzes!

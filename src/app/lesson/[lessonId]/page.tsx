@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 import { ReadAloudButton } from "@/components/ReadAloudButton";
 import { useUser, useFirestore } from "@/firebase";
 import { doc, getDoc, DocumentData } from 'firebase/firestore';
+import { useUserStats } from "@/hooks/useUserStats";
 
 
 const LessonPage = () => {
@@ -34,6 +35,7 @@ const LessonPage = () => {
   const lessonId = params.lessonId as string;
   const { progress, saveProgress } = useProgress();
   const { checkAchievements } = useAchievements();
+  const { updateUserStats } = useUserStats();
 
   const [isLearning, setIsLearning] = useState(true);
   const [currentQuiz, setCurrentQuiz] = useState(0);
@@ -64,8 +66,11 @@ const LessonPage = () => {
   useEffect(() => {
     if (quizComplete && lesson) {
       saveProgress(lesson.id, score, lesson.quiz.length);
+      if (user) {
+        updateUserStats(score, lesson.quiz.length);
+      }
     }
-  }, [quizComplete, lesson, score, saveProgress]);
+  }, [quizComplete, lesson, score, saveProgress, user, updateUserStats]);
   
   useEffect(() => {
     if (Object.keys(progress).length > 0) {

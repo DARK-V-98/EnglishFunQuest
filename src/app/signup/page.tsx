@@ -75,6 +75,9 @@ export default function SignupPage() {
           lastName: values.lastName,
           country: values.country,
           signUpDate: serverTimestamp(),
+          points: 0,
+          streak: 0,
+          lastLessonCompletedDate: null,
         });
       }
       router.push('/dashboard');
