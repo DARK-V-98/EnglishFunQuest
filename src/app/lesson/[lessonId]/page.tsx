@@ -17,7 +17,8 @@ import {
   Home,
   Star,
   Trophy,
-  Sparkles
+  Sparkles,
+  Layers
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ReadAloudButton } from "@/components/ReadAloudButton";
@@ -290,6 +291,12 @@ const LessonPage = () => {
                   <Sparkles className="w-5 h-5" />
                   Try Again
                 </KidButton>
+                <Link href={`/lesson/${lesson.id}/flashcards`}>
+                    <KidButton variant="secondary">
+                        <Layers className="w-5 h-5" />
+                        Flashcards
+                    </KidButton>
+                </Link>
                 <Link href="/lessons">
                   <KidButton>
                     <Home className="w-5 h-5" />
