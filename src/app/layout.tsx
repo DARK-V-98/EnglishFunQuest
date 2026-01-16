@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
 import { Providers } from '@/components/Providers';
+import { FirebaseClientProvider } from '@/firebase';
 
 export const metadata: Metadata = {
   title: 'Learn English Kids',
@@ -18,8 +19,10 @@ export default function RootLayout({
       <head />
       <body>
         <Providers>
-          {children}
-          <Toaster />
+          <FirebaseClientProvider>
+            {children}
+            <Toaster />
+          </FirebaseClientProvider>
         </Providers>
       </body>
     </html>

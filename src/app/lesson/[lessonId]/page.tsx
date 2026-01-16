@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { lessons } from "@/data/lessons";
 import { KidButton } from "@/components/ui/kid-button";
@@ -21,9 +21,12 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ReadAloudButton } from "@/components/ReadAloudButton";
+import { useUser } from "@/firebase";
 
 const LessonPage = () => {
   const params = useParams();
+  const router = useRouter();
+  const { user, isUserLoading } = useUser();
   const lessonId = params.lessonId as string;
   const { progress, saveProgress } = useProgress();
   const { checkAchievements } = useAchievements();
@@ -34,6 +37,12 @@ const LessonPage = () => {
   const [quizComplete, setQuizComplete] = useState(false);
 
   const lesson = lessons.find((l) => l.id === lessonId);
+  
+  useEffect(() => {
+    if (!isUserLoading && !user) {
+      router.push('/login');
+    }
+  }, [user, isUserLoading, router]);
 
   useEffect(() => {
     if (quizComplete && lesson) {
@@ -46,6 +55,14 @@ const LessonPage = () => {
       checkAchievements(progress);
     }
   }, [progress, checkAchievements]);
+
+  if (isUserLoading || !user) {
+      return (
+          <div className="min-h-screen flex items-center justify-center bg-background">
+              <p>Loading...</p>
+          </div>
+      )
+  }
 
   if (!lesson) {
     return (

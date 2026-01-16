@@ -11,6 +11,7 @@ import { useFavorites } from "@/hooks/use-favorites";
 import { useProgress } from "@/hooks/use-progress";
 import { iconMap } from "@/lib/iconMap";
 import { BookOpen } from "lucide-react";
+import { AuthButtons } from '@/components/AuthButtons';
 
 
 const totalQuestions = lessons.reduce((acc, l) => acc + l.quiz.length, 0);
@@ -59,6 +60,7 @@ export default function Home() {
                 Glossary
               </KidButton>
             </Link>
+            <AuthButtons />
           </div>
         </div>
       </header>
