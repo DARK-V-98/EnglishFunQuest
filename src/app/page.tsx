@@ -15,7 +15,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Globe className="w-8 h-8" />
-            <span className="font-heading text-xl">English Fun Quwst</span>
+            <span className="font-heading text-xl">English Fun Quest</span>
           </Link>
           
           <nav className="hidden sm:flex items-center gap-1">
@@ -34,7 +34,7 @@ export default function LandingPage() {
                 <div className="p-6">
                   <Link href="/" className="flex items-center gap-2 mb-6">
                       <Globe className="w-8 h-8 text-primary" />
-                      <span className="font-heading text-xl">English Fun Quwst</span>
+                      <span className="font-heading text-xl">English Fun Quest</span>
                   </Link>
                   <AuthButtons isMobile={true} />
                 </div>
@@ -124,11 +124,11 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Globe className="w-6 h-6 text-primary" />
-            <span className="font-heading text-lg">English Fun Quwst</span>
+            <span className="font-heading text-lg">English Fun Quest</span>
           </div>
           <p className="text-muted-foreground mb-2">This educational platform is provided <strong className="text-primary">completely free</strong> by</p>
-          <p className="text-xl font-heading text-gradient mb-4">English Fun Quwst</p>
-          <p className="text-sm text-muted-foreground">© 2024 English Fun Quwst. All rights reserved. Made with ❤️ for kids learning English.</p>
+          <p className="text-xl font-heading text-gradient mb-4">English Fun Quest</p>
+          <p className="text-sm text-muted-foreground">© 2024 English Fun Quest. All rights reserved. Made with ❤️ for kids learning English.</p>
         </div>
       </footer>
     </div>
