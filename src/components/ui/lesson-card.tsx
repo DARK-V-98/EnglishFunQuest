@@ -41,7 +41,7 @@ export function LessonCard({
   return (
     <div
       className={cn(
-        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left transition-shadow cursor-pointer",
+        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left transition-shadow cursor-pointer h-full",
         colorClasses[color]
       )}
     >
@@ -65,7 +65,7 @@ export function LessonCard({
           <Icon className="w-8 h-8" />
         </div>
         <div className="flex-1">
-          <h3 className="text-xl font-heading text-foreground mb-1">{title}</h3>
+          <h3 className="text-xl font-heading text-foreground mb-1 flex items-center min-h-14">{title}</h3>
           <p className="text-muted-foreground font-body text-sm">{description}</p>
         </div>
       </div>
