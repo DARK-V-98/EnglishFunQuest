@@ -1,5 +1,1 @@
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-
-createRoot(document.getElementById("root")!).render(<App />);
+// This file is part of the old, deprecated Vite project. The application now uses Next.js.
