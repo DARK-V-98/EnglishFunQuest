@@ -8,6 +8,7 @@ import { KidButton } from "@/components/ui/kid-button";
 import { QuizQuestion } from "@/components/QuizQuestion";
 import { Confetti } from "@/components/ui/confetti";
 import { useProgress } from "@/hooks/use-progress";
+import { useAchievements } from "@/hooks/useAchievements";
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -24,7 +25,8 @@ import { ReadAloudButton } from "@/components/ReadAloudButton";
 const LessonPage = () => {
   const params = useParams();
   const lessonId = params.lessonId as string;
-  const { saveProgress } = useProgress();
+  const { progress, saveProgress } = useProgress();
+  const { checkAchievements } = useAchievements();
 
   const [isLearning, setIsLearning] = useState(true);
   const [currentQuiz, setCurrentQuiz] = useState(0);
@@ -38,6 +40,12 @@ const LessonPage = () => {
       saveProgress(lesson.id, score, lesson.quiz.length);
     }
   }, [quizComplete, lesson, score, saveProgress]);
+  
+  useEffect(() => {
+    if (Object.keys(progress).length > 0) {
+      checkAchievements(progress);
+    }
+  }, [progress, checkAchievements]);
 
   if (!lesson) {
     return (

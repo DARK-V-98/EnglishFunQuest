@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import type { Lesson } from "@/data/lessons";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
-import { Sparkles, Star, Globe, Heart, Book, BookHeart } from "lucide-react";
+import { Sparkles, Star, Globe, Heart, Book, BookHeart, Trophy } from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
 import { useFavorites } from "@/hooks/use-favorites";
 import { useProgress } from "@/hooks/use-progress";
@@ -21,7 +21,7 @@ export default function Home() {
   const [lessonOfTheDay, setLessonOfTheDay] = useState<Lesson | null>(null);
 
   useEffect(() => {
-    const dayIndex = Math.floor(new Date().getDate() % lessons.length);
+    const dayIndex = new Date().getDate() % lessons.length;
     setLessonOfTheDay(lessons[dayIndex]);
   }, []);
 
@@ -39,6 +39,12 @@ export default function Home() {
               <KidButton variant="ghost" className="text-white hover:bg-white/20">
                 <BookHeart className="w-5 h-5" />
                 Story Time
+              </KidButton>
+            </Link>
+            <Link href="/achievements">
+              <KidButton variant="ghost" className="text-white hover:bg-white/20">
+                <Trophy className="w-5 h-5" />
+                Achievements
               </KidButton>
             </Link>
             <Link href="/favorites">

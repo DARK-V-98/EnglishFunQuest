@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { KidButton } from "@/components/ui/kid-button";
 import { Check, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -26,6 +26,22 @@ export function QuizQuestion({
   const [selected, setSelected] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  
+  const [correctSound, setCorrectSound] = useState<HTMLAudioElement | null>(null);
+  const [wrongSound, setWrongSound] = useState<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    // Client-side only
+    setCorrectSound(new Audio('https://sfx.vfy.cz/correct.mp3'));
+    setWrongSound(new Audio('https://sfx.vfy.cz/incorrect.mp3'));
+  }, []);
+  
+  const playSound = useCallback((sound: HTMLAudioElement | null) => {
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play().catch(err => console.error("Failed to play sound:", err));
+    }
+  }, []);
 
   const handleSelect = (index: number) => {
     if (showResult) return;
@@ -36,8 +52,10 @@ export function QuizQuestion({
     setIsCorrect(correct);
     
     if (correct) {
+      playSound(correctSound);
       onCorrect();
     } else {
+      playSound(wrongSound);
       onWrong();
     }
   };
