@@ -312,4 +312,142 @@ export const funLessons: Lesson[] = [
       { question: "What makes our planet special?", sinhala_translation: "අපේ ග්‍රහලෝකය විශේෂ කරන්නේ කුමක්ද?", options: ["No life", "Nature and life", "No water", "No air"], correctAnswer: 1, image: "🌳" },
     ],
   },
+  {
+    id: "at-the-park",
+    title: "At the Park",
+    description: "Fun things to do at the playground!",
+    icon: "at-the-park",
+    color: "primary",
+    content: [
+      {
+        type: "text",
+        title: "A Day at the Park! 🌳",
+        content:
+          "The park is a fun place to play outside! There are many things to do. What's your favorite?",
+      },
+      {
+        type: "list",
+        title: "Playground Fun",
+        content: [
+          "🛝 Slide - Climb up the ladder and slide down! Whee!",
+          "🌳 Swing - Sit on the seat and swing back and forth!",
+          "🎠 Seesaw - One person goes up while the other goes down.",
+          "🧗 Jungle Gym - A big structure for climbing and exploring.",
+          "🏖️ Sandbox - Play with sand, buckets, and shovels.",
+          "💧 Water Fountain - A place to get a cool drink of water.",
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 Play Safe!",
+        content: "Remember to take turns and play safely with others at the park!",
+      },
+    ],
+    quiz: [
+      {
+        question: "What do you climb up and slide down?",
+        sinhala_translation: "ඔබ උඩ නැගලා පහලට ලිස්සන්නේ මොකෙන්ද?",
+        options: ["Swing", "Slide", "Seesaw", "Sandbox"],
+        correctAnswer: 1,
+        image: "🛝",
+      },
+      {
+        question: "What goes back and forth?",
+        sinhala_translation: "ඉස්සරහට පස්සට යන්නේ මොකක්ද?",
+        options: ["Slide", "Jungle Gym", "Swing", "Sandbox"],
+        correctAnswer: 2,
+        image: "🌳",
+      },
+      {
+        question: "What needs two people to work?",
+        sinhala_translation: "වැඩ කරන්න දෙන්නෙක් ඕන මොකටද?",
+        options: ["Slide", "Swing", "Seesaw", "Water Fountain"],
+        correctAnswer: 2,
+        image: "🎠",
+      },
+      {
+        question: "Where can you play with sand?",
+        sinhala_translation: "වැලි සෙල්ලම් කරන්න පුළුවන් කොහෙද?",
+        options: ["On the slide", "On the swing", "In the sandbox", "On the jungle gym"],
+        correctAnswer: 2,
+        image: "🏖️",
+      },
+      {
+        question: "What is important to do at the park?",
+        sinhala_translation: "පාර්ක් එකේදී කරන්න වැදගත් දේ මොකක්ද?",
+        options: ["Push people", "Not share", "Take turns", "Run in front of swings"],
+        correctAnswer: 2,
+      },
+    ],
+  },
+  {
+    id: "art-and-craft",
+    title: "Art & Craft",
+    description: "Let's get creative!",
+    icon: "art-and-craft",
+    color: "pink",
+    content: [
+      {
+        type: "text",
+        title: "Let's Make Art! 🎨",
+        content:
+          "Art and craft is about making beautiful things with your hands. You can draw, paint, cut, and glue. Let's explore!",
+      },
+      {
+        type: "list",
+        title: "Art Supplies",
+        content: [
+          "🎨 Paint - Use a paintbrush to put colors on paper.",
+          "🖍️ Crayons - Wax sticks for coloring.",
+          "✂️ Scissors - Be careful! For cutting paper.",
+          "📌 Glue - Makes things stick together.",
+          "✨ Glitter - Tiny shiny pieces to make your art sparkle!",
+          "🏺 Clay - Soft material to shape with your hands.",
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 Have Fun!",
+        content:
+          "Art is not about being perfect, it's about having fun and expressing yourself!",
+      },
+    ],
+    quiz: [
+      {
+        question: "What do you use with a paintbrush?",
+        sinhala_translation: "පින්සලක් සමඟ ඔබ භාවිතා කරන්නේ කුමක්ද?",
+        options: ["Glue", "Scissors", "Paint", "Crayons"],
+        correctAnswer: 2,
+        image: "🎨",
+      },
+      {
+        question: "What is used for coloring in books?",
+        sinhala_translation: "පොත්වල වර්ණ ගැන්වීමට භාවිතා කරන්නේ කුමක්ද?",
+        options: ["Paint", "Glue", "Scissors", "Crayons"],
+        correctAnswer: 3,
+        image: "🖍️",
+      },
+      {
+        question: "What do you use to cut paper?",
+        sinhala_translation: "කඩදාසි කැපීමට ඔබ භාවිතා කරන්නේ කුමක්ද?",
+        options: ["Glue", "Scissors", "Paint", "A ruler"],
+        correctAnswer: 1,
+        image: "✂️",
+      },
+      {
+        question: "What makes art sparkle?",
+        sinhala_translation: "කලාව දිදුලන්නේ කුමක් නිසාද?",
+        options: ["Paint", "Glitter", "Clay", "Glue"],
+        correctAnswer: 1,
+        image: "✨",
+      },
+      {
+        question: "What soft material can you shape with your hands?",
+        sinhala_translation: "ඔබේ දෑතින් හැඩ ගැසිය හැකි මෘදු ද්‍රව්‍යය කුමක්ද?",
+        options: ["Paper", "Clay", "Glitter", "Paint"],
+        correctAnswer: 1,
+        image: "🏺",
+      },
+    ],
+  },
 ];

@@ -324,4 +324,141 @@ export const everydayLessons: Lesson[] = [
       { question: "When should you stay inside?", sinhala_translation: "ඔබ ගෘහස්ථව සිටිය යුත්තේ කවදාද?", options: ["Sunny day", "Storm", "Warm day", "Cool day"], correctAnswer: 1, image: "⛈️" },
     ],
   },
+  {
+    id: "daily-routines",
+    title: "My Day",
+    description: "What do you do every day?",
+    icon: "daily-routines",
+    color: "accent",
+    content: [
+      {
+        type: "text",
+        title: "A Day in My Life ☀️",
+        content:
+          "We do many things from morning to night. This is our daily routine. Let's talk about a typical day!",
+      },
+      {
+        type: "list",
+        title: "My Daily Routine",
+        content: [
+          "🌅 Morning: I wake up, brush my teeth, get dressed, and eat breakfast.",
+          "☀️ Daytime: I go to school, learn new things, and play with friends.",
+          "🌇 Afternoon: I come home from school, do my homework, and have a snack.",
+          "🌙 Evening: I eat dinner with my family, take a bath, and read a book.",
+          "😴 Night: I go to bed and sleep.",
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 Stay Organized!",
+        content: "Having a routine helps us stay organized and healthy!",
+      },
+    ],
+    quiz: [
+      {
+        question: "What is the first thing you do in the morning?",
+        sinhala_translation: "උදේට කරන පළවෙනි දේ මොකක්ද?",
+        options: ["Eat dinner", "Go to sleep", "Wake up", "Play"],
+        correctAnswer: 2,
+        image: "🌅",
+      },
+      {
+        question: "What do you do after you wake up?",
+        sinhala_translation: "නැගිට්ටට පස්සේ මොකද කරන්නේ?",
+        options: ["Eat breakfast", "Go to school", "Brush your teeth", "Go to bed"],
+        correctAnswer: 2,
+        image: "🦷",
+      },
+      {
+        question: "When do you go to school?",
+        sinhala_translation: "ඉස්කෝලෙ යන්නෙ කවදද?",
+        options: ["In the morning", "At night", "In the evening", "Never"],
+        correctAnswer: 0,
+        image: "☀️",
+      },
+      {
+        question: "What do you do in the evening?",
+        sinhala_translation: "හවසට මොකද කරන්නේ?",
+        options: ["Eat breakfast", "Go to school", "Eat dinner", "Wake up"],
+        correctAnswer: 2,
+        image: "🌙",
+      },
+      {
+        question: "What is the last thing you do at night?",
+        sinhala_translation: "රෑට කරන අන්තිම දේ මොකක්ද?",
+        options: ["Eat dinner", "Go to bed", "Wake up", "Play"],
+        correctAnswer: 1,
+        image: "😴",
+      },
+    ],
+  },
+  {
+    id: "healthy-habits",
+    title: "Healthy Habits",
+    description: "Learn how to stay healthy and strong!",
+    icon: "healthy-habits",
+    color: "purple",
+    content: [
+      {
+        type: "text",
+        title: "Stay Healthy! 💪",
+        content:
+          "Healthy habits help our bodies and minds feel great! Let's learn some important ways to take care of ourselves.",
+      },
+      {
+        type: "list",
+        title: "Important Healthy Habits",
+        content: [
+          "🍎 Eat Healthy Food: Eating fruits and vegetables gives you energy.",
+          "💧 Drink Water: Your body needs lots of water every day.",
+          "🏃 Play Outside: Running and playing makes your body strong.",
+          "🧼 Wash Your Hands: Wash with soap and water to get rid of germs.",
+          "🦷 Brush Your Teeth: Brush in the morning and at night for a healthy smile.",
+          "😴 Get Enough Sleep: Sleeping helps your body rest and grow.",
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 Be Strong!",
+        content: "A healthy body helps you learn and play better!",
+      },
+    ],
+    quiz: [
+      {
+        question: "Which food group is the healthiest?",
+        sinhala_translation: "වඩාත්ම සෞඛ්‍ය සම්පන්න ආහාර කාණ්ඩය කුමක්ද?",
+        options: ["Candy", "Fruits and Vegetables", "Chips", "Soda"],
+        correctAnswer: 1,
+        image: "🍎",
+      },
+      {
+        question: "What should you do before eating?",
+        sinhala_translation: "කෑමට පෙර කුමක් කළ යුතුද?",
+        options: ["Play with dirt", "Wash your hands", "Touch your face", "Nothing"],
+        correctAnswer: 1,
+        image: "🧼",
+      },
+      {
+        question: "How many times a day should you brush your teeth?",
+        sinhala_translation: "දිනකට කී වතාවක් දත් මදින්න ඕනෙද?",
+        options: ["Never", "Once a week", "Twice a day", "Once a month"],
+        correctAnswer: 2,
+        image: "🦷",
+      },
+      {
+        question: "What does sleep help your body do?",
+        sinhala_translation: "නින්ද ඔබේ ශරීරයට උපකාර කරන්නේ කුමක් සඳහාද?",
+        options: ["Get tired", "Rest and grow", "Stay awake", "Eat more"],
+        correctAnswer: 1,
+        image: "😴",
+      },
+      {
+        question: "What is a healthy drink?",
+        sinhala_translation: "සෞඛ්‍ය සම්පන්න පානයක් යනු කුමක්ද?",
+        options: ["Soda", "Water", "Sugary juice", "Milkshake"],
+        correctAnswer: 1,
+        image: "💧",
+      },
+    ],
+  },
 ];

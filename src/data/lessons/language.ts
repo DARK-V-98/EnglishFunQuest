@@ -311,4 +311,144 @@ export const languageLessons: Lesson[] = [
       { question: "What do you say when someone does well?", sinhala_translation: "කවුරුහරි හොඳින් කළ විට ඔබ පවසන්නේ කුමක්ද?", options: ["Whatever", "Good job! / Well done!", "It's okay", "You got lucky"], correctAnswer: 1 },
     ],
   },
+  {
+    id: "prepositions",
+    title: "Where Is It? (Prepositions)",
+    description: "Learn words that tell us where things are.",
+    icon: "prepositions",
+    color: "secondary",
+    content: [
+      {
+        type: "text",
+        title: "Position Words 📍",
+        content:
+          "Prepositions are small words that tell us the position of something. Is it on the table? Or under the table? Let's find out!",
+      },
+      {
+        type: "list",
+        title: "Common Prepositions",
+        content: [
+          "➡️ On - The apple is on the box.",
+          "➡️ In - The apple is in the box.",
+          "➡️ Under - The apple is under the box.",
+          "➡️ Next to / Beside - The apple is next to the box.",
+          "➡️ Behind - The apple is behind the box.",
+          "➡️ In front of - The apple is in front of the box.",
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 Look Around!",
+        content:
+          "Look around you! Can you describe where things are using these new words? 'The cup is on the table.'",
+      },
+    ],
+    quiz: [
+      {
+        question: "The cat is ___ the chair.",
+        sinhala_translation: "බළලා පුටුව ___ ඇත.",
+        options: ["In", "On", "Under", "Behind"],
+        correctAnswer: 1,
+        image: "🐈",
+      },
+      {
+        question: "The ball is ___ the box.",
+        sinhala_translation: "බෝලය පෙට්ටිය ___ ඇත.",
+        options: ["In", "On", "Under", "Behind"],
+        correctAnswer: 0,
+        image: "⚽",
+      },
+      {
+        question: "The dog is sleeping ___ the table.",
+        sinhala_translation: "බල්ලා මේසය ___ නිදා ගනියි.",
+        options: ["On", "In", "Under", "Next to"],
+        correctAnswer: 2,
+        image: "🐕",
+      },
+      {
+        question: "The book is ___ the bag.",
+        sinhala_translation: "පොත බෑගය ___ ඇත.",
+        options: ["On", "In", "Under", "Behind"],
+        correctAnswer: 1,
+        image: "📚",
+      },
+      {
+        question: "The tree is ___ the house.",
+        sinhala_translation: "ගස නිවස ___ ඇත.",
+        options: ["In", "On", "Behind", "Under"],
+        correctAnswer: 2,
+        image: "🌳",
+      },
+    ],
+  },
+  {
+    id: "adjectives",
+    title: "Describing Words (Adjectives)",
+    description: "Words that make our sentences more colorful!",
+    icon: "adjectives",
+    color: "purple",
+    content: [
+      {
+        type: "text",
+        title: "Making Words Colorful! 🎨",
+        content:
+          "Adjectives are describing words. They tell us more about nouns (people, places, things). They make our stories more interesting!",
+      },
+      {
+        type: "list",
+        title: "Examples of Adjectives",
+        content: [
+          "Big / Small - The big elephant and the small mouse.",
+          "Happy / Sad - The happy girl and the sad boy.",
+          "Red / Blue - The red car and the blue boat.",
+          "Hot / Cold - Hot soup and cold ice cream.",
+          "Fast / Slow - The fast rabbit and the slow turtle.",
+          "Soft / Hard - A soft pillow and a hard rock.",
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 Be a Storyteller!",
+        content:
+          "Try adding a describing word to things you see. Instead of 'dog', say 'a friendly brown dog'!",
+      },
+    ],
+    quiz: [
+      {
+        question: "An elephant is ____.",
+        sinhala_translation: "අලියෙක් ____.",
+        options: ["Small", "Big", "Light", "Sad"],
+        correctAnswer: 1,
+        image: "🐘",
+      },
+      {
+        question: "Ice cream is ____.",
+        sinhala_translation: "අයිස්ක්‍රීම් ____.",
+        options: ["Hot", "Hard", "Cold", "Sad"],
+        correctAnswer: 2,
+        image: "🍦",
+      },
+      {
+        question: "A pillow is ____.",
+        sinhala_translation: "කොට්ටයක් ____.",
+        options: ["Hard", "Loud", "Soft", "Sour"],
+        correctAnswer: 2,
+        image: "☁️",
+      },
+      {
+        question: "The sun is ____.",
+        sinhala_translation: "හිරු ____.",
+        options: ["Cold", "Dark", "Bright", "Small"],
+        correctAnswer: 2,
+        image: "☀️",
+      },
+      {
+        question: "Which word describes a lemon?",
+        sinhala_translation: "දෙහි ගෙඩියක් විස්තර කරන වචනය කුමක්ද?",
+        options: ["Sweet", "Soft", "Sour", "Red"],
+        correctAnswer: 2,
+        image: "🍋",
+      },
+    ],
+  },
 ];

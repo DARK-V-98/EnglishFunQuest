@@ -274,4 +274,73 @@ export const basicsLessons: Lesson[] = [
       { question: "What color is a stop sign?", sinhala_translation: "නැවතුම් ලකුණක වර්ණය කුමක්ද?", options: ["Yellow", "Green", "Blue", "Red"], correctAnswer: 3 },
     ],
   },
+  {
+    id: "my-senses",
+    title: "My Five Senses",
+    description: "Learn about seeing, hearing, smelling, tasting, and touching.",
+    icon: "my-senses",
+    color: "pink",
+    content: [
+      {
+        type: "text",
+        title: "Exploring the World!",
+        content:
+          "Our body has five amazing senses to help us explore the world! They are sight, hearing, smell, taste, and touch. Let's learn what each one does!",
+      },
+      {
+        type: "list",
+        title: "The Five Senses",
+        content: [
+          "👀 Sight - We see with our eyes. We see colors, shapes, and movement.",
+          "👂 Hearing - We hear with our ears. We hear music, voices, and noises.",
+          "👃 Smell - We smell with our nose. We smell flowers, food, and rain.",
+          "👅 Taste - We taste with our tongue. We taste sweet, sour, salty, and bitter things.",
+          "🖐️ Touch - We feel with our skin. We feel hot, cold, soft, and hard things.",
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 Teamwork!",
+        content:
+          "Your senses work together to give you information about everything around you!",
+      },
+    ],
+    quiz: [
+      {
+        question: "Which sense do you use to see a rainbow?",
+        sinhala_translation: "දේදුන්නක් බලන්න පාවිච්චි කරන ඉන්ද්‍රිය මොකක්ද?",
+        options: ["Hearing", "Sight", "Smell", "Touch"],
+        correctAnswer: 1,
+        image: "👀",
+      },
+      {
+        question: "What part of your body do you use for hearing?",
+        sinhala_translation: "ඇසීමට භාවිතා කරන ශරීර කොටස කුමක්ද?",
+        options: ["Eyes", "Nose", "Ears", "Tongue"],
+        correctAnswer: 2,
+        image: "👂",
+      },
+      {
+        question: "Which sense tells you a flower smells nice?",
+        sinhala_translation: "මලක් සුවඳයි කියල කියන්නෙ මොන ඉන්ද්‍රියද?",
+        options: ["Smell", "Taste", "Touch", "Sight"],
+        correctAnswer: 0,
+        image: "👃",
+      },
+      {
+        question: "What do you use to taste ice cream?",
+        sinhala_translation: "අයිස්ක්‍රීම් රස බලන්න පාවිච්චි කරන්නේ මොකක්ද?",
+        options: ["Nose", "Ears", "Eyes", "Tongue"],
+        correctAnswer: 3,
+        image: "👅",
+      },
+      {
+        question: "Which sense tells you if a cat is soft?",
+        sinhala_translation: "බළලෙක් මෘදුද නැද්ද කියලා කියන්නෙ මොන ඉන්ද්‍රියද?",
+        options: ["Sight", "Hearing", "Touch", "Smell"],
+        correctAnswer: 2,
+        image: "🖐️",
+      },
+    ],
+  },
 ];

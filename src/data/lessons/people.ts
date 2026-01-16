@@ -308,4 +308,74 @@ export const peopleLessons: Lesson[] = [
       { question: "Who cleans your teeth?", sinhala_translation: "ඔබේ දත් පිරිසිදු කරන්නේ කවුද?", options: ["Doctor", "Nurse", "Dentist", "Chef"], correctAnswer: 2 },
     ],
   },
+  {
+    id: "community-helpers",
+    title: "Community Helpers",
+    description: "People who help us in our town.",
+    icon: "community-helpers",
+    color: "accent",
+    content: [
+      {
+        type: "text",
+        title: "Our Town's Heroes! 🦸",
+        content:
+          "Community helpers are people who have special jobs to help everyone in the town. Let's learn about some of them!",
+      },
+      {
+        type: "list",
+        title: "Important Helpers",
+        content: [
+          "🧑‍🚒 Firefighter - Puts out fires and helps in emergencies.",
+          "👮 Police Officer - Keeps our town safe.",
+          "👨‍⚕️ Doctor - Helps us when we are sick.",
+          "👨‍🏫 Teacher - Helps us learn new things at school.",
+          "📮 Mail Carrier - Delivers letters and packages to our homes.",
+          "🗑️ Garbage Collector - Keeps our town clean by taking away trash.",
+        ],
+      },
+      {
+        type: "tip",
+        title: "💡 Say Thank You!",
+        content:
+          "Say 'thank you' when you see a community helper! They work hard for us.",
+      },
+    ],
+    quiz: [
+      {
+        question: "Who delivers letters to your house?",
+        sinhala_translation: "ඔබේ නිවසට ලිපි ගෙන එන්නේ කවුද?",
+        options: ["Doctor", "Mail Carrier", "Teacher", "Firefighter"],
+        correctAnswer: 1,
+        image: "📮",
+      },
+      {
+        question: "Who helps you learn at school?",
+        sinhala_translation: "පාසැලේදී ඉගෙනීමට ඔබට උදව් කරන්නේ කවුද?",
+        options: ["Police Officer", "Doctor", "Teacher", "Garbage Collector"],
+        correctAnswer: 2,
+        image: "👨‍🏫",
+      },
+      {
+        question: "Who puts out fires?",
+        sinhala_translation: "ගිනි නිවන්නේ කවුද?",
+        options: ["Firefighter", "Teacher", "Doctor", "Mail Carrier"],
+        correctAnswer: 0,
+        image: "🧑‍🚒",
+      },
+      {
+        question: "Who keeps the town clean by taking trash?",
+        sinhala_translation: "කසළ ඉවත් කර නගරය පිරිසිදුව තබන්නේ කවුද?",
+        options: ["Doctor", "Garbage Collector", "Police Officer", "Teacher"],
+        correctAnswer: 1,
+        image: "🗑️",
+      },
+      {
+        question: "Who do you see when you are sick?",
+        sinhala_translation: "ඔබ අසනීප වූ විට ඔබ දකින්නේ කවුද?",
+        options: ["Mail Carrier", "Firefighter", "Police Officer", "Doctor"],
+        correctAnswer: 3,
+        image: "👨‍⚕️",
+      },
+    ],
+  },
 ];
