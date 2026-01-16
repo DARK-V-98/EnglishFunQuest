@@ -5,6 +5,7 @@ import { KidButton } from "@/components/ui/kid-button";
 import { Check, X, Sparkles, Languages } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ReadAloudButton } from "./ReadAloudButton";
+import { useSettings } from "@/hooks/use-settings";
 
 interface QuizQuestionProps {
   question: string;
@@ -30,6 +31,7 @@ export function QuizQuestion({
   const [isCorrect, setIsCorrect] = useState(false);
   const [showTranslation, setShowTranslation] = useState(false);
   
+  const { soundEnabled } = useSettings();
   const [correctSound, setCorrectSound] = useState<HTMLAudioElement | null>(null);
   const [wrongSound, setWrongSound] = useState<HTMLAudioElement | null>(null);
 
@@ -40,11 +42,11 @@ export function QuizQuestion({
   }, []);
   
   const playSound = useCallback((sound: HTMLAudioElement | null) => {
-    if (sound) {
+    if (sound && soundEnabled) {
       sound.currentTime = 0;
       sound.play().catch(err => console.error("Failed to play sound:", err));
     }
-  }, []);
+  }, [soundEnabled]);
 
   const handleSelect = (index: number) => {
     if (showResult) return;

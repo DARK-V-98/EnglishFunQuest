@@ -3,7 +3,7 @@
 import { useUser, useAuth, useFirestore } from '@/firebase';
 import Link from 'next/link';
 import { KidButton } from './ui/kid-button';
-import { LogOut, UserPlus, LogIn, LayoutDashboard, User as UserIcon, Moon, Sun } from 'lucide-react';
+import { LogOut, UserPlus, LogIn, LayoutDashboard, User as UserIcon, Settings } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { SheetClose } from './ui/sheet';
 import { cn } from '@/lib/utils';
@@ -18,8 +18,6 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState, useEffect } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
-import { useTheme } from 'next-themes';
-import { Switch } from './ui/switch';
 
 export function AuthButtons({ isMobile = false }: { isMobile?: boolean }) {
   const { user, isUserLoading } = useUser();
@@ -28,7 +26,6 @@ export function AuthButtons({ isMobile = false }: { isMobile?: boolean }) {
   const router = useRouter();
   const [firstName, setFirstName] = useState('');
   const [avatar, setAvatar] = useState('');
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     if (user && firestore) {
@@ -79,6 +76,14 @@ export function AuthButtons({ isMobile = false }: { isMobile?: boolean }) {
                           <KidButton variant="outline" className="w-full justify-start">
                               <UserIcon className="w-5 h-5"/>
                               Profile
+                          </KidButton>
+                      </Link>
+                  </SheetClose>
+                   <SheetClose asChild>
+                      <Link href="/dashboard/settings">
+                          <KidButton variant="outline" className="w-full justify-start">
+                              <Settings className="w-5 h-5"/>
+                              Settings
                           </KidButton>
                       </Link>
                   </SheetClose>
@@ -147,19 +152,11 @@ export function AuthButtons({ isMobile = false }: { isMobile?: boolean }) {
                         <span>Profile</span>
                     </Link>
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-                  <div className="flex items-center justify-between w-full">
-                      <div className="flex items-center gap-2">
-                          <Sun className="h-4 w-4" />
-                          <span>Theme</span>
-                          <Moon className="h-4 w-4" />
-                      </div>
-                      <Switch
-                          checked={theme === 'dark'}
-                          onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                      />
-                  </div>
+                 <DropdownMenuItem asChild>
+                     <Link href="/dashboard/settings" className="w-full cursor-pointer">
+                        <Settings className="mr-2 h-4 w-4" />
+                        <span>Settings</span>
+                    </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
