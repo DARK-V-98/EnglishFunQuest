@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import { lessons } from "@/data/lessons";
 import { KidButton } from "@/components/ui/kid-button";
@@ -20,7 +20,6 @@ import { cn } from "@/lib/utils";
 
 const LessonPage = () => {
   const params = useParams();
-  const router = useRouter();
   const lessonId = params.lessonId;
 
   const [isLearning, setIsLearning] = useState(true);
