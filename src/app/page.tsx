@@ -3,26 +3,18 @@
 import Link from "next/link";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
-import { 
-  BookOpen, Hash, Palette, Cat, MessageCircle, Sparkles, Star, Calendar, CalendarDays, 
-  Users, User, Utensils, Zap, Fish, Bug, Clock, Heart, Briefcase, Shirt, CloudSun,
-  Home as HomeIcon, MapPin, Bus, GraduationCap, Gamepad2, Medal, Music, TreePine, Shapes, 
-  MessageSquare, ArrowLeftRight, Globe
-} from "lucide-react";
+import { Sparkles, Star, Globe, Heart, Book } from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
+import { useFavorites } from "@/hooks/use-favorites";
+import { iconMap } from "@/lib/iconMap";
+import { BookOpen } from "lucide-react";
 
-const iconMap: { [key: string]: any } = {
-  alphabet: BookOpen, numbers: Hash, colors: Palette, animals: Cat, greetings: MessageCircle,
-  days: Calendar, months: CalendarDays, family: Users, body: User, food: Utensils,
-  verbs: Zap, "sea-animals": Fish, insects: Bug, time: Clock, feelings: Heart,
-  jobs: Briefcase, clothes: Shirt, weather: CloudSun, rooms: HomeIcon, places: MapPin,
-  transportation: Bus, school: GraduationCap, toys: Gamepad2, sports: Medal, 
-  music: Music, nature: TreePine, shapes: Shapes, phrases: MessageSquare, opposites: ArrowLeftRight
-};
 
 const totalQuestions = lessons.reduce((acc, l) => acc + l.quiz.length, 0);
 
 export default function Home() {
+  const { isFavorite, toggleFavorite } = useFavorites();
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -32,7 +24,20 @@ export default function Home() {
             <Globe className="w-8 h-8" />
             <span className="font-heading text-xl">Learn English Kids</span>
           </div>
-          <div className="text-sm opacity-90">by ESYSTEMLK • 100% Free</div>
+          <div className="hidden sm:flex items-center gap-2">
+            <Link href="/favorites">
+              <KidButton variant="ghost" className="text-white hover:bg-white/20">
+                <Heart className="w-5 h-5" />
+                Favorites
+              </KidButton>
+            </Link>
+            <Link href="/glossary">
+              <KidButton variant="ghost" className="text-white hover:bg-white/20">
+                <Book className="w-5 h-5" />
+                Glossary
+              </KidButton>
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -98,6 +103,12 @@ export default function Home() {
                 description={`${lesson.quiz.length} quizzes`}
                 icon={iconMap[lesson.icon] || BookOpen}
                 color={lesson.color}
+                isFavorite={isFavorite(lesson.id)}
+                onToggleFavorite={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  toggleFavorite(lesson.id);
+                }}
               />
             </Link>
           ))}

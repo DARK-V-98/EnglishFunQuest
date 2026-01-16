@@ -17,6 +17,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ReadAloudButton } from "@/components/ReadAloudButton";
 
 const LessonPage = () => {
   const params = useParams();
@@ -98,7 +99,10 @@ const LessonPage = () => {
               </KidButton>
             </Link>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-heading">{lesson.title}</h1>
+              <div className="flex items-center gap-2">
+                <h1 className="text-2xl sm:text-3xl font-heading">{lesson.title}</h1>
+                <ReadAloudButton text={lesson.title} className="text-white/80 hover:text-white" />
+              </div>
               <p className="text-white/80">{lesson.description}</p>
             </div>
           </div>
@@ -144,18 +148,25 @@ const LessonPage = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {item.title && (
-                  <h2 className="text-xl sm:text-2xl font-heading text-foreground mb-4">
-                    {item.title}
-                  </h2>
+                  <div className="flex items-center gap-2 mb-4">
+                    <h2 className="text-xl sm:text-2xl font-heading text-foreground">
+                      {item.title}
+                    </h2>
+                    <ReadAloudButton text={item.title} />
+                  </div>
                 )}
                 
                 {item.type === "text" && (
-                  <p className="text-lg text-muted-foreground leading-relaxed">{item.content as string}</p>
+                  <div className="flex items-start gap-2">
+                    <p className="text-lg text-muted-foreground leading-relaxed flex-1">{item.content as string}</p>
+                    <ReadAloudButton text={item.content as string} />
+                  </div>
                 )}
 
                 {item.type === "tip" && (
-                  <div className="bg-warning/20 border-2 border-warning rounded-xl p-4">
-                    <p className="text-lg text-foreground">{item.content as string}</p>
+                  <div className="bg-warning/20 border-2 border-warning rounded-xl p-4 flex items-start gap-2">
+                    <p className="text-lg text-foreground flex-1">{item.content as string}</p>
+                     <ReadAloudButton text={item.content as string} />
                   </div>
                 )}
                 
@@ -164,9 +175,10 @@ const LessonPage = () => {
                     {(item.content as string[]).map((listItem, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start gap-3 p-3 bg-muted/50 rounded-xl text-base hover:bg-muted transition-colors"
+                        className="flex items-center gap-3 p-3 bg-muted/50 rounded-xl text-base hover:bg-muted transition-colors"
                       >
-                        <span>{listItem}</span>
+                        <span className="flex-1">{listItem}</span>
+                        <ReadAloudButton text={listItem.split(' - ')[0]} />
                       </li>
                     ))}
                   </ul>

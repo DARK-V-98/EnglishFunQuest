@@ -4,6 +4,7 @@ import { useState } from "react";
 import { KidButton } from "@/components/ui/kid-button";
 import { Check, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ReadAloudButton } from "./ReadAloudButton";
 
 interface QuizQuestionProps {
   question: string;
@@ -56,9 +57,12 @@ export function QuizQuestion({
         </div>
       )}
       
-      <h3 className="text-2xl font-heading text-center mb-8 text-foreground">
-        {question}
-      </h3>
+      <div className="flex items-center justify-center gap-2 mb-8">
+        <h3 className="text-2xl font-heading text-center text-foreground">
+          {question}
+        </h3>
+        <ReadAloudButton text={question} />
+      </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {options.map((option, index) => (

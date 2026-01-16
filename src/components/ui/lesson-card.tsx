@@ -1,14 +1,16 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, Star } from "lucide-react";
+import { KidButton } from "./kid-button";
 
 interface LessonCardProps {
   title: string;
   description: string;
   icon: LucideIcon;
   color: "primary" | "secondary" | "accent" | "purple" | "pink";
-  onClick?: () => void;
   progress?: number;
+  isFavorite?: boolean;
+  onToggleFavorite?: (e: React.MouseEvent) => void;
 }
 
 const colorClasses = {
@@ -32,17 +34,27 @@ export function LessonCard({
   description,
   icon: Icon,
   color,
-  onClick,
   progress = 0,
+  isFavorite,
+  onToggleFavorite,
 }: LessonCardProps) {
   return (
-    <button
-      onClick={onClick}
+    <div
       className={cn(
-        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left transition-shadow",
+        "relative w-full p-6 rounded-3xl border-[6px] transition-all duration-300 hover-bounce card-shadow text-left transition-shadow cursor-pointer",
         colorClasses[color]
       )}
     >
+      {onToggleFavorite && (
+        <KidButton
+          variant="ghost"
+          size="icon"
+          onClick={onToggleFavorite}
+          className="absolute top-2 right-2 z-10 text-warning hover:bg-warning/20 h-12 w-12"
+        >
+          <Star className={cn("w-7 h-7 transition-all", isFavorite ? "fill-warning" : "fill-transparent stroke-current")} />
+        </KidButton>
+      )}
       <div className="flex items-start gap-4">
         <div
           className={cn(
@@ -68,6 +80,6 @@ export function LessonCard({
           <p className="text-xs mt-1 text-muted-foreground">{progress}% complete</p>
         </div>
       )}
-    </button>
+    </div>
   );
 }
