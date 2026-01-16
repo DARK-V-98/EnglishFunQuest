@@ -6,7 +6,7 @@ import { AuthButtons } from '@/components/AuthButtons';
 import { KidButton } from "@/components/ui/kid-button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { Menu, BookHeart, Trophy, Heart, Book, BookText, Zap, Star, ShieldCheck, PlayCircle, BookOpen } from "lucide-react";
+import { Menu, BookHeart, Trophy, Heart, Book, BookText, Zap, Star, ShieldCheck, PlayCircle, BookOpen, Lightbulb } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -65,13 +65,13 @@ export default function LandingPage() {
                 alt="English Fun Quest Logo"
                 width={640}
                 height={640}
-                className="mb-6 bounce-in"
+                className="mb-6 bounce-in w-[640px] h-auto"
             />
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading mb-4">
               Welcome to <span className="text-gradient">English Fun Quest</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              The fun, free, and friendly way to master English through engaging lessons, interactive quizzes, and captivating stories. Perfect for kids and adults!
+              Embark on a joyful adventure to master English! Our app offers fun, free, and engaging lessons, interactive quizzes, and captivating stories, making it the perfect learning companion for both kids and adults. Start your quest today!
             </p>
             <Link href="/lessons">
               <KidButton size="xl">
@@ -90,17 +90,17 @@ export default function LandingPage() {
             <div className="bg-card p-8 rounded-3xl card-shadow border-4 border-transparent hover:border-primary transition-all">
               <div className="bg-primary/10 inline-block p-4 rounded-2xl mb-4"><Zap className="w-10 h-10 text-primary" /></div>
               <h3 className="text-2xl font-heading mb-2">Interactive Lessons</h3>
-              <p className="text-muted-foreground">Dive into a wide range of topics, from basic vocabulary like animals and food to advanced grammar. Our lessons are designed to be fun, bite-sized, and packed with colorful visuals to keep you engaged.</p>
+              <p className="text-muted-foreground">Forget boring textbooks! Our lessons are designed to feel like a game. Dive into a wide range of topics, from basic vocabulary like animals and food to advanced grammar, all presented with colorful visuals and fun examples to keep you hooked.</p>
             </div>
             <div className="bg-card p-8 rounded-3xl card-shadow border-4 border-transparent hover:border-secondary transition-all">
               <div className="bg-secondary/10 inline-block p-4 rounded-2xl mb-4"><Star className="w-10 h-10 text-secondary" /></div>
               <h3 className="text-2xl font-heading mb-2">Engaging Quizzes</h3>
-              <p className="text-muted-foreground">Put your knowledge to the test! After each lesson, take an exciting quiz with instant feedback. Earn stars for correct answers, achieve perfect scores, and watch your confidence grow with every question.</p>
+              <p className="text-muted-foreground">Ready to test your skills? After each lesson, you can take an exciting quiz with instant feedback. Earn stars for correct answers, achieve perfect scores, and watch your confidence soar as you conquer each challenge.</p>
             </div>
             <div className="bg-card p-8 rounded-3xl card-shadow border-4 border-transparent hover:border-accent transition-all">
               <div className="bg-accent/10 inline-block p-4 rounded-2xl mb-4"><ShieldCheck className="w-10 h-10 text-accent" /></div>
               <h3 className="text-2xl font-heading mb-2">For All Ages</h3>
-              <p className="text-muted-foreground">Our curriculum is thoughtfully designed for learners of all ages. With simple, playful lessons for kids and in-depth grammar training for adults, it's the perfect learning companion for the whole family.</p>
+              <p className="text-muted-foreground">Whether you're a young child just starting out or an adult looking to polish your skills, our curriculum is thoughtfully designed for you. With simple, playful lessons for kids and in-depth grammar for adults, it's the perfect learning companion for the whole family.</p>
             </div>
           </div>
         </div>
@@ -112,17 +112,23 @@ export default function LandingPage() {
             <h2 className="text-3xl sm:text-4xl font-heading text-foreground mb-12">Start Your Adventure in 3 Easy Steps</h2>
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
               <div className="flex flex-col items-center">
-                <div className="text-6xl mb-4">1️⃣</div>
+                <div className="p-6 bg-primary/10 rounded-full mb-4 inline-block">
+                    <BookOpen className="w-12 h-12 text-primary" />
+                </div>
                 <h3 className="text-xl font-heading">Choose a Lesson</h3>
                 <p className="text-muted-foreground text-center max-w-xs">Browse our extensive library of lessons covering everything from the alphabet to complex grammar. Pick any topic that sparks your interest and get ready to learn.</p>
               </div>
                <div className="flex flex-col items-center">
-                <div className="text-6xl mb-4">2️⃣</div>
+                <div className="p-6 bg-secondary/10 rounded-full mb-4 inline-block">
+                    <Lightbulb className="w-12 h-12 text-secondary" />
+                </div>
                 <h3 className="text-xl font-heading">Learn & Play</h3>
                 <p className="text-muted-foreground text-center max-w-xs">Immerse yourself in our fun, interactive content. After you've mastered the material, take a playful quiz to test your skills and solidify your knowledge.</p>
               </div>
                <div className="flex flex-col items-center">
-                <div className="text-6xl mb-4">3️⃣</div>
+                <div className="p-6 bg-accent/10 rounded-full mb-4 inline-block">
+                    <Trophy className="w-12 h-12 text-accent" />
+                </div>
                 <h3 className="text-xl font-heading">Track Progress</h3>
                 <p className="text-muted-foreground text-center max-w-xs">Create a free account to save your quiz scores, earn cool achievements, and track your learning journey. Watch as you complete lessons and become an English master!</p>
               </div>
