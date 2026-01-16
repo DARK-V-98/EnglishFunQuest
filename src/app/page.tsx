@@ -6,7 +6,7 @@ import { lessons } from "@/data/lessons";
 import { 
   BookOpen, Hash, Palette, Cat, MessageCircle, Sparkles, Star, Calendar, CalendarDays, 
   Users, User, Utensils, Zap, Fish, Bug, Clock, Heart, Briefcase, Shirt, CloudSun,
-  Home, MapPin, Bus, GraduationCap, Gamepad2, Medal, Music, TreePine, Shapes, 
+  Home as HomeIcon, MapPin, Bus, GraduationCap, Gamepad2, Medal, Music, TreePine, Shapes, 
   MessageSquare, ArrowLeftRight, Globe
 } from "lucide-react";
 
@@ -14,7 +14,7 @@ const iconMap: { [key: string]: any } = {
   alphabet: BookOpen, numbers: Hash, colors: Palette, animals: Cat, greetings: MessageCircle,
   days: Calendar, months: CalendarDays, family: Users, body: User, food: Utensils,
   verbs: Zap, "sea-animals": Fish, insects: Bug, time: Clock, feelings: Heart,
-  jobs: Briefcase, clothes: Shirt, weather: CloudSun, rooms: Home, places: MapPin,
+  jobs: Briefcase, clothes: Shirt, weather: CloudSun, rooms: HomeIcon, places: MapPin,
   transportation: Bus, school: GraduationCap, toys: Gamepad2, sports: Medal, 
   music: Music, nature: TreePine, shapes: Shapes, phrases: MessageSquare, opposites: ArrowLeftRight
 };
