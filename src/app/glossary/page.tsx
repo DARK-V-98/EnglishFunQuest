@@ -24,13 +24,16 @@ export default function GlossaryPage() {
             const parts = line.split(' - ');
             if (parts.length > 1) {
               const emojiAndWord = parts[0];
-              const wordMatch = emojiAndWord.match(/[a-zA-Z\s]+/);
-              const word = wordMatch ? wordMatch[0].trim() : '';
-              const emoji = emojiAndWord.replace(word, '').trim();
+              const firstLetterIndex = emojiAndWord.search(/\p{L}/u);
               
-              if (word && emoji && !addedWords.has(word.toLowerCase())) {
-                items.push({ word, emoji });
-                addedWords.add(word.toLowerCase());
+              if (firstLetterIndex !== -1) {
+                const emoji = emojiAndWord.substring(0, firstLetterIndex).trim();
+                let word = emojiAndWord.substring(firstLetterIndex).split('/')[0].split('↔️')[0].trim();
+                
+                if (word && emoji && !addedWords.has(word.toLowerCase())) {
+                  items.push({ word, emoji });
+                  addedWords.add(word.toLowerCase());
+                }
               }
             }
           });
@@ -56,7 +59,7 @@ export default function GlossaryPage() {
       <main className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {glossaryItems.map((item, index) => (
-            <div key={index} className="bg-card rounded-3xl p-4 card-shadow border-4 border-muted text-center flex flex-col items-center justify-center gap-2 bounce-in" style={{ animationDelay: `${index * 0.02}s` }}>
+            <div key={index} className="bg-card rounded-3xl p-4 card-shadow border-4 border-muted text-center flex flex-col items-center gap-2 bounce-in" style={{ animationDelay: `${index * 0.02}s` }}>
               <div className="text-6xl">{item.emoji}</div>
               <div className="font-heading text-xl">{item.word}</div>
               <ReadAloudButton text={item.word} />
