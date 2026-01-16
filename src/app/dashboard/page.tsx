@@ -15,6 +15,7 @@ import {
   Heart,
   Book,
   BookHeart,
+  User,
 } from 'lucide-react';
 import { doc, getDoc } from 'firebase/firestore';
 import { useFirestore } from '@/firebase';
@@ -73,14 +74,22 @@ export default function DashboardPage() {
           <h1 className="text-3xl font-heading">
             Welcome, {firstName || 'Friend'}!
           </h1>
-          <KidButton
-            onClick={() => auth.signOut()}
-            variant="ghost"
-            className="text-white hover:bg-white/20"
-          >
-            <LogOut className="w-5 h-5" />
-            Logout
-          </KidButton>
+          <div className="flex items-center gap-2">
+            <Link href="/dashboard/profile">
+              <KidButton variant="ghost" className="text-white hover:bg-white/20">
+                <User className="w-5 h-5"/>
+                Profile
+              </KidButton>
+            </Link>
+            <KidButton
+              onClick={() => auth.signOut()}
+              variant="ghost"
+              className="text-white hover:bg-white/20"
+            >
+              <LogOut className="w-5 h-5" />
+              Logout
+            </KidButton>
+          </div>
         </div>
       </header>
       <main className="max-w-6xl mx-auto px-4 py-8">
