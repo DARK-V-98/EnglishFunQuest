@@ -58,18 +58,28 @@ export default function LandingPage() {
       <section className="py-20 px-4 text-center bg-background relative overflow-hidden">
         <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute top-20 -left-10 w-60 h-60 bg-secondary/10 rounded-full blur-3xl" />
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading mb-4 bounce-in">
-          The Fun Way to <span className="text-gradient">Learn English</span>
-        </h1>
-        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Welcome to a world of fun and learning! Our platform offers engaging lessons, interactive quizzes, and captivating stories designed to help kids and adults master English. Whether you're just starting or looking to sharpen your skills, our completely free platform makes learning a joyful adventure.
-        </p>
-        <Link href="/lessons">
-          <KidButton size="xl">
-            <PlayCircle className="w-8 h-8" />
-            Start Learning Now
-          </KidButton>
-        </Link>
+        
+        <div className="flex flex-col items-center justify-center">
+            <Image
+                src="/logo.png"
+                alt="English Fun Quest Logo"
+                width={128}
+                height={128}
+                className="mb-6 bounce-in"
+            />
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading mb-4">
+              Welcome to <span className="text-gradient">English Fun Quest</span>
+            </h1>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              The fun, free, and friendly way to master English through engaging lessons, interactive quizzes, and captivating stories. Perfect for kids and adults!
+            </p>
+            <Link href="/lessons">
+              <KidButton size="xl">
+                <PlayCircle className="w-8 h-8" />
+                Start Learning Now
+              </KidButton>
+            </Link>
+        </div>
       </section>
 
       {/* Features Section */}
