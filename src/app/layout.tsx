@@ -3,10 +3,12 @@ import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
 import { Providers } from '@/components/Providers';
 import { FirebaseClientProvider } from '@/firebase';
+import ServiceWorkerRegistrar from '@/components/ServiceWorkerRegistrar';
 
 export const metadata: Metadata = {
   title: 'English Fun Quest',
   description: 'Learn English with Fun!',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
@@ -24,6 +26,7 @@ export default function RootLayout({
             <Toaster />
           </FirebaseClientProvider>
         </Providers>
+        <ServiceWorkerRegistrar />
       </body>
     </html>
   );
