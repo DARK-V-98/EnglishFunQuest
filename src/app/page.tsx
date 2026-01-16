@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
-import { Sparkles, Star, Globe, Heart, Book } from "lucide-react";
+import { Sparkles, Star, Globe, Heart, Book, BookHeart } from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
 import { useFavorites } from "@/hooks/use-favorites";
 import { iconMap } from "@/lib/iconMap";
@@ -25,6 +25,12 @@ export default function Home() {
             <span className="font-heading text-xl">Learn English Kids</span>
           </div>
           <div className="hidden sm:flex items-center gap-2">
+            <Link href="/stories">
+              <KidButton variant="ghost" className="text-white hover:bg-white/20">
+                <BookHeart className="w-5 h-5" />
+                Story Time
+              </KidButton>
+            </Link>
             <Link href="/favorites">
               <KidButton variant="ghost" className="text-white hover:bg-white/20">
                 <Heart className="w-5 h-5" />
@@ -102,7 +108,7 @@ export default function Home() {
                 title={lesson.title}
                 description={`${lesson.quiz.length} quizzes`}
                 icon={iconMap[lesson.icon] || BookOpen}
-                color={lesson.color}
+                color={['primary', 'secondary', 'accent', 'purple', 'pink'][index % 5] as any}
                 isFavorite={isFavorite(lesson.id)}
                 onToggleFavorite={(e) => {
                   e.preventDefault();
