@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "testimonial-1",
+      "description": "Avatar for Sarah, a marketing manager.",
+      "imageUrl": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzY4NTUyNzc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Avatar for Mike, a startup founder.",
+      "imageUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3Njg1NzI1MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Avatar for Jane, a freelance developer.",
+      "imageUrl": "https://images.unsplash.com/photo-1750223642533-1b74b17edae8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBnbGFzc2VzfGVufDB8fHx8MTc2ODQ4NTM0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person glasses"
+    },
+    {
+      "id": "testimonial-4",
+      "description": "Avatar for Alex, a product designer.",
+      "imageUrl": "https://images.unsplash.com/photo-1518644730709-0835105d9daa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjB0aGlua2luZ3xlbnwwfHx8fDE3Njg0Njk4NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person thinking"
+    }
+  ]
 }
