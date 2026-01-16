@@ -44,6 +44,10 @@
           "type": "string",
           "description": "The date the user last completed a lesson, in YYYY-MM-DD format.",
           "format": "date"
+        },
+        "avatar": {
+          "type": "string",
+          "description": "User's selected avatar emoji."
         }
       },
       "required": [

@@ -27,6 +27,7 @@ export function AuthButtons({ isMobile = false }: { isMobile?: boolean }) {
   const firestore = useFirestore();
   const router = useRouter();
   const [firstName, setFirstName] = useState('');
+  const [avatar, setAvatar] = useState('');
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -36,7 +37,9 @@ export function AuthButtons({ isMobile = false }: { isMobile?: boolean }) {
           const userDocRef = doc(firestore, 'users', user.uid);
           const userDoc = await getDoc(userDocRef);
           if (userDoc.exists()) {
-            setFirstName(userDoc.data().firstName || '');
+            const data = userDoc.data();
+            setFirstName(data.firstName || '');
+            setAvatar(data.avatar || '');
           }
         } catch (error) {
           console.error("Failed to fetch user data:", error);
@@ -116,7 +119,9 @@ export function AuthButtons({ isMobile = false }: { isMobile?: boolean }) {
                 <KidButton variant="ghost" className="relative h-10 w-10 rounded-full !shadow-none">
                     <Avatar className="h-10 w-10 border-2 border-white/50">
                         <AvatarImage src={user.photoURL || ''} alt={firstName || 'User'} />
-                        <AvatarFallback className="bg-secondary text-secondary-foreground">{getInitials()}</AvatarFallback>
+                        <AvatarFallback className="bg-secondary text-secondary-foreground text-2xl">
+                          {avatar ? avatar : getInitials()}
+                        </AvatarFallback>
                     </Avatar>
                 </KidButton>
             </DropdownMenuTrigger>

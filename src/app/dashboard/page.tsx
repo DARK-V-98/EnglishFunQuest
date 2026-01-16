@@ -13,6 +13,7 @@ import {
   Book,
   BookHeart,
   BookText,
+  Crown,
 } from 'lucide-react';
 import { doc, getDoc } from 'firebase/firestore';
 import { useFirestore } from '@/firebase';
@@ -116,6 +117,12 @@ export default function DashboardPage() {
                 <KidButton variant="outline" className="w-full h-32 flex-col text-lg">
                   <Trophy className="w-10 h-10 mb-2" />
                   Achievements
+                </KidButton>
+              </Link>
+               <Link href="/leaderboard">
+                <KidButton variant="outline" className="w-full h-32 flex-col text-lg">
+                  <Crown className="w-10 h-10 mb-2" />
+                  Leaderboard
                 </KidButton>
               </Link>
               <Link href="/favorites">

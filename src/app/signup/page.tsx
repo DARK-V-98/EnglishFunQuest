@@ -78,6 +78,7 @@ export default function SignupPage() {
           points: 0,
           streak: 0,
           lastLessonCompletedDate: null,
+          avatar: '🐶',
         });
       }
       router.push('/dashboard');

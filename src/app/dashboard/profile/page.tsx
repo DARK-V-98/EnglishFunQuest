@@ -27,11 +27,16 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { ArrowLeft, Save } from 'lucide-react';
+import { avatars } from '@/data/avatars';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { cn } from '@/lib/utils';
+import { Label } from '@/components/ui/label';
 
 const profileFormSchema = z.object({
   firstName: z.string().min(2, { message: 'First name is too short.' }),
   lastName: z.string().min(2, { message: 'Last name is too short.' }),
   country: z.string({ required_error: 'Please select a country.' }),
+  avatar: z.string({ required_error: 'Please select an avatar.' }),
 });
 
 const countries = [
@@ -55,6 +60,7 @@ export default function ProfilePage() {
       firstName: '',
       lastName: '',
       country: '',
+      avatar: '',
     },
   });
 
@@ -72,6 +78,7 @@ export default function ProfilePage() {
             firstName: userData.firstName,
             lastName: userData.lastName,
             country: userData.country,
+            avatar: userData.avatar,
           });
         }
       };
@@ -128,33 +135,69 @@ export default function ProfilePage() {
       <main className="max-w-xl mx-auto p-4 sm:p-8">
         <div className="w-full p-8 space-y-8 bg-card rounded-3xl card-shadow border-4 border-muted">
             <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
-                control={form.control}
-                name="firstName"
-                render={({ field }) => (
+                  control={form.control}
+                  name="avatar"
+                  render={({ field }) => (
                     <FormItem>
-                    <FormLabel>First Name</FormLabel>
-                    <FormControl>
-                        <Input placeholder="John" {...field} />
-                    </FormControl>
-                    <FormMessage />
+                      <FormLabel>Choose Your Avatar</FormLabel>
+                      <FormControl>
+                        <RadioGroup
+                          onValueChange={field.onChange}
+                          value={field.value}
+                          className="grid grid-cols-4 sm:grid-cols-6 gap-4 pt-2"
+                        >
+                          {avatars.map((avatar) => (
+                            <FormItem key={avatar} className="flex items-center justify-center">
+                              <FormControl>
+                                <RadioGroupItem value={avatar} id={avatar} className="sr-only" />
+                              </FormControl>
+                              <Label
+                                htmlFor={avatar}
+                                className={cn(
+                                  "text-5xl p-3 rounded-3xl flex items-center justify-center cursor-pointer border-4 border-muted hover:border-primary/50 transition-all aspect-square",
+                                  field.value === avatar && "border-primary bg-primary/10 scale-110"
+                                )}
+                              >
+                                {avatar}
+                              </Label>
+                            </FormItem>
+                          ))}
+                        </RadioGroup>
+                      </FormControl>
+                      <FormMessage />
                     </FormItem>
-                )}
+                  )}
                 />
-                <FormField
-                control={form.control}
-                name="lastName"
-                render={({ field }) => (
-                    <FormItem>
-                    <FormLabel>Last Name</FormLabel>
-                    <FormControl>
-                        <Input placeholder="Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                    </FormItem>
-                )}
-                />
+                <div className="grid grid-cols-2 gap-4">
+                    <FormField
+                    control={form.control}
+                    name="firstName"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>First Name</FormLabel>
+                        <FormControl>
+                            <Input placeholder="John" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="lastName"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Last Name</FormLabel>
+                        <FormControl>
+                            <Input placeholder="Doe" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
                 <FormField
                   control={form.control}
                   name="country"

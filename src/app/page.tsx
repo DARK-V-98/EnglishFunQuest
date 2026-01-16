@@ -6,7 +6,7 @@ import { AuthButtons } from '@/components/AuthButtons';
 import { KidButton } from "@/components/ui/kid-button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { Menu, BookHeart, Trophy, Heart, Book, BookText, Zap, Star, ShieldCheck, PlayCircle, BookOpen, Lightbulb } from "lucide-react";
+import { Menu, BookHeart, Trophy, Heart, Book, BookText, Zap, Star, ShieldCheck, PlayCircle, BookOpen, Lightbulb, Crown } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -44,6 +44,7 @@ export default function LandingPage() {
                   <SheetClose asChild><Link href="/lessons"><KidButton variant="ghost" className="w-full justify-start"><BookOpen className="w-5 h-5" />Lessons</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/stories"><KidButton variant="ghost" className="w-full justify-start"><BookHeart className="w-5 h-5" />Story Time</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/grammar"><KidButton variant="ghost" className="w-full justify-start"><BookText className="w-5 h-5" />Grammar</KidButton></Link></SheetClose>
+                  <SheetClose asChild><Link href="/leaderboard"><KidButton variant="ghost" className="w-full justify-start"><Crown className="w-5 h-5" />Leaderboard</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/achievements"><KidButton variant="ghost" className="w-full justify-start"><Trophy className="w-5 h-5" />Achievements</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/favorites"><KidButton variant="ghost" className="w-full justify-start"><Heart className="w-5 h-5" />Favorites</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/glossary"><KidButton variant="ghost" className="w-full justify-start"><Book className="w-5 h-5" />Glossary</KidButton></Link></SheetClose>

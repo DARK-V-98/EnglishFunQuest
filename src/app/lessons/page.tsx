@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import type { Lesson } from "@/data/lessons";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
-import { Sparkles, Star, Heart, Book, BookHeart, Trophy, BookText, Menu, BookOpen } from "lucide-react";
+import { Sparkles, Star, Heart, Book, BookHeart, Trophy, BookText, Menu, BookOpen, Crown } from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
 import { useFavorites } from "@/hooks/use-favorites";
 import { useProgress } from "@/hooks/use-progress";
@@ -67,6 +67,7 @@ export default function LessonsPage() {
                   <SheetClose asChild><Link href="/lessons"><KidButton variant="ghost" className="w-full justify-start"><BookOpen className="w-5 h-5" />Lessons</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/stories"><KidButton variant="ghost" className="w-full justify-start"><BookHeart className="w-5 h-5" />Story Time</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/grammar"><KidButton variant="ghost" className="w-full justify-start"><BookText className="w-5 h-5" />Grammar</KidButton></Link></SheetClose>
+                  <SheetClose asChild><Link href="/leaderboard"><KidButton variant="ghost" className="w-full justify-start"><Crown className="w-5 h-5" />Leaderboard</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/achievements"><KidButton variant="ghost" className="w-full justify-start"><Trophy className="w-5 h-5" />Achievements</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/favorites"><KidButton variant="ghost" className="w-full justify-start"><Heart className="w-5 h-5" />Favorites</KidButton></Link></SheetClose>
                   <SheetClose asChild><Link href="/glossary"><KidButton variant="ghost" className="w-full justify-start"><Book className="w-5 h-5" />Glossary</KidButton></Link></SheetClose>
