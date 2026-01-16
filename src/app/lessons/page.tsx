@@ -1,11 +1,12 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import type { Lesson } from "@/data/lessons";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
-import { Sparkles, Star, Globe, Heart, Book, BookHeart, Trophy, BookText, Menu, BookOpen } from "lucide-react";
+import { Sparkles, Star, Heart, Book, BookHeart, Trophy, BookText, Menu, BookOpen } from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
 import { useFavorites } from "@/hooks/use-favorites";
 import { useProgress } from "@/hooks/use-progress";
@@ -33,7 +34,7 @@ export default function LessonsPage() {
       <header className="bg-gradient-to-r from-primary via-secondary to-accent p-4 text-white sticky top-0 z-50 shadow-md">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Globe className="w-8 h-8" />
+            <Image src="/logo.png" alt="English Fun Quest Logo" width={32} height={32} />
             <span className="font-heading text-xl">English Fun Quest</span>
           </Link>
           
@@ -56,7 +57,7 @@ export default function LessonsPage() {
               <SheetContent side="right" className="bg-background text-foreground p-0 w-[80vw] max-w-sm">
                 <div className="p-6">
                   <Link href="/" className="flex items-center gap-2 mb-6">
-                      <Globe className="w-8 h-8 text-primary" />
+                      <Image src="/logo.png" alt="English Fun Quest Logo" width={32} height={32} />
                       <span className="font-heading text-xl">English Fun Quest</span>
                   </Link>
                   <AuthButtons isMobile={true} />
@@ -135,7 +136,7 @@ export default function LessonsPage() {
       <footer className="bg-card border-t-4 border-primary py-8 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Globe className="w-6 h-6 text-primary" />
+            <Image src="/logo.png" alt="English Fun Quest Logo" width={24} height={24} />
             <span className="font-heading text-lg">English Fun Quest</span>
           </div>
           <p className="text-muted-foreground mb-2">This educational platform is provided <strong className="text-primary">completely free</strong> by</p>
