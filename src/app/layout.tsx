@@ -5,7 +5,7 @@ import { Providers } from '@/components/Providers';
 import { FirebaseClientProvider } from '@/firebase';
 
 export const metadata: Metadata = {
-  title: 'Learn English Kids',
+  title: 'English Fun Quwst',
   description: 'Learn English with Fun!',
 };
 
