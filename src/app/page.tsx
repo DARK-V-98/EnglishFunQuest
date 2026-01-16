@@ -5,13 +5,15 @@ import { useState, useEffect } from "react";
 import type { Lesson } from "@/data/lessons";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
-import { Sparkles, Star, Globe, Heart, Book, BookHeart, Trophy, BookText } from "lucide-react";
+import { Sparkles, Star, Globe, Heart, Book, BookHeart, Trophy, BookText, Menu } from "lucide-react";
 import { KidButton } from "@/components/ui/kid-button";
 import { useFavorites } from "@/hooks/use-favorites";
 import { useProgress } from "@/hooks/use-progress";
 import { iconMap } from "@/lib/iconMap";
 import { BookOpen } from "lucide-react";
 import { AuthButtons } from '@/components/AuthButtons';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 
 
 const totalQuestions = lessons.reduce((acc, l) => acc + l.quiz.length, 0);
@@ -29,13 +31,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-gradient-to-r from-primary via-secondary to-accent p-4 text-white">
+      <header className="bg-gradient-to-r from-primary via-secondary to-accent p-4 text-white sticky top-0 z-50 shadow-md">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Globe className="w-8 h-8" />
             <span className="font-heading text-xl">Learn English Kids</span>
-          </div>
-          <div className="hidden sm:flex items-center gap-2">
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden sm:flex items-center gap-1">
             <Link href="/stories">
               <KidButton variant="ghost" className="text-white hover:bg-white/20">
                 <BookHeart className="w-5 h-5" />
@@ -67,6 +71,69 @@ export default function Home() {
               </KidButton>
             </Link>
             <AuthButtons />
+          </nav>
+
+          {/* Mobile Navigation */}
+          <div className="sm:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <KidButton variant="ghost" size="icon" className="text-white hover:bg-white/20">
+                  <Menu className="w-6 h-6" />
+                </KidButton>
+              </SheetTrigger>
+              <SheetContent side="right" className="bg-background text-foreground p-0 w-[80vw] max-w-sm">
+                <div className="p-6">
+                  <Link href="/" className="flex items-center gap-2 mb-6">
+                      <Globe className="w-8 h-8 text-primary" />
+                      <span className="font-heading text-xl">Learn English Kids</span>
+                  </Link>
+                  <AuthButtons isMobile={true} />
+                </div>
+                <Separator />
+                <nav className="flex flex-col gap-1 p-4">
+                  <SheetClose asChild>
+                      <Link href="/stories">
+                        <KidButton variant="ghost" className="w-full justify-start">
+                            <BookHeart className="w-5 h-5" />
+                            Story Time
+                        </KidButton>
+                      </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                      <Link href="/achievements">
+                        <KidButton variant="ghost" className="w-full justify-start">
+                            <Trophy className="w-5 h-5" />
+                            Achievements
+                        </KidButton>
+                      </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                      <Link href="/favorites">
+                        <KidButton variant="ghost" className="w-full justify-start">
+                            <Heart className="w-5 h-5" />
+                            Favorites
+                        </KidButton>
+                      </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                      <Link href="/glossary">
+                        <KidButton variant="ghost" className="w-full justify-start">
+                            <Book className="w-5 h-5" />
+                            Glossary
+                        </KidButton>
+                      </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                      <Link href="/grammar">
+                        <KidButton variant="ghost" className="w-full justify-start">
+                            <BookText className="w-5 h-5" />
+                            Grammar
+                        </KidButton>
+                      </Link>
+                  </SheetClose>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </header>

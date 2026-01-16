@@ -71,8 +71,8 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-gradient-to-r from-primary via-secondary to-accent p-6 text-white">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <h1 className="text-3xl font-heading">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center sm:justify-between gap-4">
+          <h1 className="text-2xl sm:text-3xl font-heading text-center sm:text-left">
             Welcome, {firstName || 'Friend'}!
           </h1>
           <div className="flex items-center gap-2">
