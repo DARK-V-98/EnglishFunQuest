@@ -61,7 +61,7 @@ export default function LandingPage() {
           The Fun Way to <span className="text-gradient">Learn English</span>
         </h1>
         <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Engaging lessons, interactive quizzes, and fun stories to help kids and adults master English. Completely free!
+          Welcome to a world of fun and learning! Our platform offers engaging lessons, interactive quizzes, and captivating stories designed to help kids and adults master English. Whether you're just starting or looking to sharpen your skills, our completely free platform makes learning a joyful adventure.
         </p>
         <Link href="/lessons">
           <KidButton size="xl">
@@ -79,17 +79,17 @@ export default function LandingPage() {
             <div className="bg-card p-8 rounded-3xl card-shadow border-4 border-transparent hover:border-primary transition-all">
               <div className="bg-primary/10 inline-block p-4 rounded-2xl mb-4"><Zap className="w-10 h-10 text-primary" /></div>
               <h3 className="text-2xl font-heading mb-2">Interactive Lessons</h3>
-              <p className="text-muted-foreground">Jump into topics like animals, food, and grammar with fun, bite-sized lessons.</p>
+              <p className="text-muted-foreground">Dive into a wide range of topics, from basic vocabulary like animals and food to advanced grammar. Our lessons are designed to be fun, bite-sized, and packed with colorful visuals to keep you engaged.</p>
             </div>
             <div className="bg-card p-8 rounded-3xl card-shadow border-4 border-transparent hover:border-secondary transition-all">
               <div className="bg-secondary/10 inline-block p-4 rounded-2xl mb-4"><Star className="w-10 h-10 text-secondary" /></div>
               <h3 className="text-2xl font-heading mb-2">Engaging Quizzes</h3>
-              <p className="text-muted-foreground">Test your knowledge after each lesson with instant feedback and earn perfect scores.</p>
+              <p className="text-muted-foreground">Put your knowledge to the test! After each lesson, take an exciting quiz with instant feedback. Earn stars for correct answers, achieve perfect scores, and watch your confidence grow with every question.</p>
             </div>
             <div className="bg-card p-8 rounded-3xl card-shadow border-4 border-transparent hover:border-accent transition-all">
               <div className="bg-accent/10 inline-block p-4 rounded-2xl mb-4"><ShieldCheck className="w-10 h-10 text-accent" /></div>
               <h3 className="text-2xl font-heading mb-2">For All Ages</h3>
-              <p className="text-muted-foreground">From basic vocabulary for kids to detailed grammar for adults, there's something for everyone.</p>
+              <p className="text-muted-foreground">Our curriculum is thoughtfully designed for learners of all ages. With simple, playful lessons for kids and in-depth grammar training for adults, it's the perfect learning companion for the whole family.</p>
             </div>
           </div>
         </div>
@@ -103,17 +103,17 @@ export default function LandingPage() {
               <div className="flex flex-col items-center">
                 <div className="text-6xl mb-4">1️⃣</div>
                 <h3 className="text-xl font-heading">Choose a Lesson</h3>
-                <p className="text-muted-foreground text-center max-w-xs">Pick any topic that interests you.</p>
+                <p className="text-muted-foreground text-center max-w-xs">Browse our extensive library of lessons covering everything from the alphabet to complex grammar. Pick any topic that sparks your interest and get ready to learn.</p>
               </div>
                <div className="flex flex-col items-center">
                 <div className="text-6xl mb-4">2️⃣</div>
                 <h3 className="text-xl font-heading">Learn & Play</h3>
-                <p className="text-muted-foreground text-center max-w-xs">Read the fun content and take the quiz.</p>
+                <p className="text-muted-foreground text-center max-w-xs">Immerse yourself in our fun, interactive content. After you've mastered the material, take a playful quiz to test your skills and solidify your knowledge.</p>
               </div>
                <div className="flex flex-col items-center">
                 <div className="text-6xl mb-4">3️⃣</div>
                 <h3 className="text-xl font-heading">Track Progress</h3>
-                <p className="text-muted-foreground text-center max-w-xs">Sign up to save your scores & earn achievements!</p>
+                <p className="text-muted-foreground text-center max-w-xs">Create a free account to save your quiz scores, earn cool achievements, and track your learning journey. Watch as you complete lessons and become an English master!</p>
               </div>
             </div>
           </div>
