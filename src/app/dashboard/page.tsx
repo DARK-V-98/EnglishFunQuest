@@ -130,7 +130,7 @@ export default function DashboardPage() {
           <h2 className="text-3xl font-heading text-center mb-6">Where to next?</h2>
           <div className="bg-card rounded-3xl p-8 card-shadow border-4 border-muted">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
-              <Link href="/">
+              <Link href="/lessons">
                 <KidButton variant="outline" className="w-full h-28 flex-col">
                   <BookOpen className="w-8 h-8" />
                   All Lessons

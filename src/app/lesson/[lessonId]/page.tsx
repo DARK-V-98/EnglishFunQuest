@@ -88,7 +88,7 @@ const LessonPage = () => {
           <h1 className="text-3xl font-heading text-foreground mb-4">
             Lesson not found! 😢
           </h1>
-          <Link href="/">
+          <Link href="/lessons">
             <KidButton>
               <Home className="w-5 h-5" />
               Go Home
@@ -144,7 +144,7 @@ const LessonPage = () => {
       )}>
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-4">
-            <Link href="/">
+            <Link href="/lessons">
               <KidButton variant="ghost" size="icon" className="text-white hover:bg-white/20">
                 <ArrowLeft className="w-6 h-6" />
               </KidButton>
@@ -285,7 +285,7 @@ const LessonPage = () => {
                   <Sparkles className="w-5 h-5" />
                   Try Again
                 </KidButton>
-                <Link href="/">
+                <Link href="/lessons">
                   <KidButton>
                     <Home className="w-5 h-5" />
                     More Lessons

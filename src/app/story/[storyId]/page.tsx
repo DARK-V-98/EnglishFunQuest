@@ -85,7 +85,7 @@ export default function StoryPage() {
           ))}
         </div>
          <div className="text-center pt-8">
-            <Link href="/">
+            <Link href="/lessons">
               <KidButton>
                 <Home className="w-5 h-5" />
                 Back to Lessons

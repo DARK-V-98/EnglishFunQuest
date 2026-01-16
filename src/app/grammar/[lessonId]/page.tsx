@@ -279,7 +279,7 @@ const GrammarLessonPage = () => {
                     More Grammar
                   </KidButton>
                 </Link>
-                 <Link href="/">
+                 <Link href="/lessons">
                   <KidButton variant="secondary">
                     <Home className="w-5 h-5" />
                     Main Menu

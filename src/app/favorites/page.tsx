@@ -18,7 +18,7 @@ export default function FavoritesPage() {
     <div className="min-h-screen bg-background">
       <header className="bg-gradient-to-r from-pink to-purple p-6 text-white">
         <div className="max-w-6xl mx-auto flex items-center gap-4">
-          <Link href="/">
+          <Link href="/lessons">
             <KidButton variant="ghost" size="icon" className="text-white hover:bg-white/20">
               <ArrowLeft className="w-6 h-6" />
             </KidButton>
@@ -55,7 +55,7 @@ export default function FavoritesPage() {
             <div className="text-6xl mb-4">😢</div>
             <h2 className="text-3xl font-heading mb-4">No Favorites Yet!</h2>
             <p className="text-muted-foreground mb-8">Click the star on any lesson to add it to your favorites.</p>
-            <Link href="/">
+            <Link href="/lessons">
               <KidButton>
                 <BookOpen className="w-5 h-5" />
                 Find Lessons

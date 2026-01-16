@@ -14,7 +14,7 @@ export default function AchievementsPage() {
     <div className="min-h-screen bg-background">
       <header className="bg-gradient-to-r from-warning to-accent p-6 text-white">
         <div className="max-w-6xl mx-auto flex items-center gap-4">
-          <Link href="/">
+          <Link href="/lessons">
             <KidButton variant="ghost" size="icon" className="text-white hover:bg-white/20">
               <ArrowLeft className="w-6 h-6" />
             </KidButton>
