@@ -1,0 +1,110 @@
+'use client';
+
+import { useState } from "react";
+import { KidButton } from "@/components/ui/kid-button";
+import { Check, X, Sparkles } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface QuizQuestionProps {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  image?: string;
+  onCorrect: () => void;
+  onWrong: () => void;
+}
+
+export function QuizQuestion({
+  question,
+  options,
+  correctAnswer,
+  image,
+  onCorrect,
+  onWrong,
+}: QuizQuestionProps) {
+  const [selected, setSelected] = useState<number | null>(null);
+  const [showResult, setShowResult] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  const handleSelect = (index: number) => {
+    if (showResult) return;
+    
+    setSelected(index);
+    setShowResult(true);
+    const correct = index === correctAnswer;
+    setIsCorrect(correct);
+    
+    if (correct) {
+      onCorrect();
+    } else {
+      onWrong();
+    }
+  };
+
+  const getButtonVariant = (index: number) => {
+    if (!showResult) return "outline";
+    if (index === correctAnswer) return "correct";
+    if (index === selected && !isCorrect) return "wrong";
+    return "outline";
+  };
+
+  return (
+    <div className="bg-card rounded-3xl p-8 card-shadow border-4 border-muted">
+      {image && (
+        <div className="mb-6 flex justify-center">
+          <div className="text-8xl bounce-in">{image}</div>
+        </div>
+      )}
+      
+      <h3 className="text-2xl font-heading text-center mb-8 text-foreground">
+        {question}
+      </h3>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {options.map((option, index) => (
+          <KidButton
+            key={index}
+            variant={getButtonVariant(index)}
+            size="lg"
+            onClick={() => handleSelect(index)}
+            className={cn(
+              "w-full justify-start",
+              showResult && index === correctAnswer && "celebrate"
+            )}
+          >
+            {showResult && index === correctAnswer && (
+              <Check className="w-6 h-6 mr-2" />
+            )}
+            {showResult && index === selected && !isCorrect && index !== correctAnswer && (
+              <X className="w-6 h-6 mr-2" />
+            )}
+            {option}
+          </KidButton>
+        ))}
+      </div>
+      
+      {showResult && (
+        <div
+          className={cn(
+            "mt-6 p-4 rounded-2xl text-center font-heading text-xl bounce-in",
+            isCorrect
+              ? "bg-success/20 text-success"
+              : "bg-destructive/20 text-destructive"
+          )}
+        >
+          {isCorrect ? (
+            <div className="flex items-center justify-center gap-2">
+              <Sparkles className="w-6 h-6" />
+              Amazing! Great job! 🎉
+              <Sparkles className="w-6 h-6" />
+            </div>
+          ) : (
+            <div>
+              Oops! The correct answer is: <strong>{options[correctAnswer]}</strong> 💪
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}

@@ -1,6 +1,4 @@
-'use client';
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { LessonCard } from "@/components/ui/lesson-card";
 import { lessons } from "@/data/lessons";
 import { 
@@ -21,7 +19,7 @@ const iconMap: { [key: string]: any } = {
 
 const totalQuestions = lessons.reduce((acc, l) => acc + l.quiz.length, 0);
 
-export default function Home() {
+const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -78,7 +76,7 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {lessons.map((lesson, index) => (
-            <Link key={lesson.id} href={`/lesson/${lesson.id}`} style={{ animationDelay: `${index * 0.05}s` }} className="bounce-in block">
+            <Link key={lesson.id} to={`/lesson/${lesson.id}`} style={{ animationDelay: `${index * 0.05}s` }} className="bounce-in block">
               <LessonCard
                 title={lesson.title}
                 description={`${lesson.quiz.length} quizzes`}
@@ -117,4 +115,6 @@ export default function Home() {
       </footer>
     </div>
   );
-}
+};
+
+export default Index;
